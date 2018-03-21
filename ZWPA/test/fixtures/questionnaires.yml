@@ -1,0 +1,91 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  square_footage: 1.5
+  max_occupancy: 
+  num_floors: 
+  management_structure: 
+  waste_disposal_system: MyString
+  solid_waste_system: MyString
+  waste_management_costs: MyString
+  loading_dock: MyString
+  freight_elevators: MyString
+  location_info: 
+  trash_hauler: MyString
+  trash_hauler_contract: MyString
+  trash_hauler_copy: MyString
+  record_of_waste_vol: MyString
+  solid_waste_storage: MyString
+  solid_waste_containers: MyString
+  solid_waste_info: 
+  recycling_mandated: MyString
+  recycling_program: MyString
+  recycling_program_stream: MyString
+  recycling_program_info: 
+  buy_recycling_policy: MyString
+  buy_recycling_policy_info: 
+  discontinued_recycling_info: 
+  compost_waste_current: MyString
+  compost_waste_past: MyString
+  compost_program_info: 
+  toner: MyString
+  cfls: MyString
+  batteries: MyString
+  peripherals: MyString
+  cell_phones: MyString
+  tvs: MyString
+  corded_equipment: MyString
+  furniture: MyString
+  linens: MyString
+  construction_debris: MyString
+  pallets: MyString
+  zero_waste_policy: MyString
+  leed_certified: MyString
+  recertify_leed: MyString
+  true_zero_waste_audit: MyString
+  prc_waste_audit: MyString
+
+two:
+  square_footage: 1.5
+  max_occupancy: 
+  num_floors: 
+  management_structure: 
+  waste_disposal_system: MyString
+  solid_waste_system: MyString
+  waste_management_costs: MyString
+  loading_dock: MyString
+  freight_elevators: MyString
+  location_info: 
+  trash_hauler: MyString
+  trash_hauler_contract: MyString
+  trash_hauler_copy: MyString
+  record_of_waste_vol: MyString
+  solid_waste_storage: MyString
+  solid_waste_containers: MyString
+  solid_waste_info: 
+  recycling_mandated: MyString
+  recycling_program: MyString
+  recycling_program_stream: MyString
+  recycling_program_info: 
+  buy_recycling_policy: MyString
+  buy_recycling_policy_info: 
+  discontinued_recycling_info: 
+  compost_waste_current: MyString
+  compost_waste_past: MyString
+  compost_program_info: 
+  toner: MyString
+  cfls: MyString
+  batteries: MyString
+  peripherals: MyString
+  cell_phones: MyString
+  tvs: MyString
+  corded_equipment: MyString
+  furniture: MyString
+  linens: MyString
+  construction_debris: MyString
+  pallets: MyString
+  zero_waste_policy: MyString
+  leed_certified: MyString
+  recertify_leed: MyString
+  true_zero_waste_audit: MyString
+  prc_waste_audit: MyString
