@@ -1,0 +1,189 @@
+<%= form_for(@questionnaire) do |f| %>
+  <% if @questionnaire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@questionnaire.errors.count, "error") %> prohibited this questionnaire from being saved:</h2>
+
+      <ul>
+      <% @questionnaire.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :square_footage %><br>
+    <%= f.text_field :square_footage %>
+  </div>
+  <div class="field">
+    <%= f.label :max_occupancy %><br>
+    <%= f.text_field :max_occupancy %>
+  </div>
+  <div class="field">
+    <%= f.label :num_floors %><br>
+    <%= f.text_field :num_floors %>
+  </div>
+  <div class="field">
+    <%= f.label :management_structure %><br>
+    <%= f.text_field :management_structure %>
+  </div>
+  <div class="field">
+    <%= f.label :waste_disposal_system %><br>
+    <%= f.text_field :waste_disposal_system %>
+  </div>
+  <div class="field">
+    <%= f.label :solid_waste_system %><br>
+    <%= f.text_field :solid_waste_system %>
+  </div>
+  <div class="field">
+    <%= f.label :waste_management_costs %><br>
+    <%= f.text_field :waste_management_costs %>
+  </div>
+  <div class="field">
+    <%= f.label :loading_dock %><br>
+    <%= f.text_field :loading_dock %>
+  </div>
+  <div class="field">
+    <%= f.label :freight_elevators %><br>
+    <%= f.text_field :freight_elevators %>
+  </div>
+  <div class="field">
+    <%= f.label :location_info %><br>
+    <%= f.text_field :location_info %>
+  </div>
+  <div class="field">
+    <%= f.label :trash_hauler %><br>
+    <%= f.text_field :trash_hauler %>
+  </div>
+  <div class="field">
+    <%= f.label :trash_hauler_contract %><br>
+    <%= f.text_field :trash_hauler_contract %>
+  </div>
+  <div class="field">
+    <%= f.label :trash_hauler_copy %><br>
+    <%= f.text_field :trash_hauler_copy %>
+  </div>
+  <div class="field">
+    <%= f.label :record_of_waste_vol %><br>
+    <%= f.text_field :record_of_waste_vol %>
+  </div>
+  <div class="field">
+    <%= f.label :solid_waste_storage %><br>
+    <%= f.text_field :solid_waste_storage %>
+  </div>
+  <div class="field">
+    <%= f.label :solid_waste_containers %><br>
+    <%= f.text_field :solid_waste_containers %>
+  </div>
+  <div class="field">
+    <%= f.label :solid_waste_info %><br>
+    <%= f.text_field :solid_waste_info %>
+  </div>
+  <div class="field">
+    <%= f.label :recycling_mandated %><br>
+    <%= f.text_field :recycling_mandated %>
+  </div>
+  <div class="field">
+    <%= f.label :recycling_program %><br>
+    <%= f.text_field :recycling_program %>
+  </div>
+  <div class="field">
+    <%= f.label :recycling_program_stream %><br>
+    <%= f.text_field :recycling_program_stream %>
+  </div>
+  <div class="field">
+    <%= f.label :recycling_program_info %><br>
+    <%= f.text_field :recycling_program_info %>
+  </div>
+  <div class="field">
+    <%= f.label :buy_recycling_policy %><br>
+    <%= f.text_field :buy_recycling_policy %>
+  </div>
+  <div class="field">
+    <%= f.label :buy_recycling_policy_info %><br>
+    <%= f.text_field :buy_recycling_policy_info %>
+  </div>
+  <div class="field">
+    <%= f.label :discontinued_recycling_info %><br>
+    <%= f.text_field :discontinued_recycling_info %>
+  </div>
+  <div class="field">
+    <%= f.label :compost_waste_current %><br>
+    <%= f.text_field :compost_waste_current %>
+  </div>
+  <div class="field">
+    <%= f.label :compost_waste_past %><br>
+    <%= f.text_field :compost_waste_past %>
+  </div>
+  <div class="field">
+    <%= f.label :compost_program_info %><br>
+    <%= f.text_field :compost_program_info %>
+  </div>
+  <div class="field">
+    <%= f.label :toner %><br>
+    <%= f.text_field :toner %>
+  </div>
+  <div class="field">
+    <%= f.label :cfls %><br>
+    <%= f.text_field :cfls %>
+  </div>
+  <div class="field">
+    <%= f.label :batteries %><br>
+    <%= f.text_field :batteries %>
+  </div>
+  <div class="field">
+    <%= f.label :peripherals %><br>
+    <%= f.text_field :peripherals %>
+  </div>
+  <div class="field">
+    <%= f.label :cell_phones %><br>
+    <%= f.text_field :cell_phones %>
+  </div>
+  <div class="field">
+    <%= f.label :tvs %><br>
+    <%= f.text_field :tvs %>
+  </div>
+  <div class="field">
+    <%= f.label :corded_equipment %><br>
+    <%= f.text_field :corded_equipment %>
+  </div>
+  <div class="field">
+    <%= f.label :furniture %><br>
+    <%= f.text_field :furniture %>
+  </div>
+  <div class="field">
+    <%= f.label :linens %><br>
+    <%= f.text_field :linens %>
+  </div>
+  <div class="field">
+    <%= f.label :construction_debris %><br>
+    <%= f.text_field :construction_debris %>
+  </div>
+  <div class="field">
+    <%= f.label :pallets %><br>
+    <%= f.text_field :pallets %>
+  </div>
+  <div class="field">
+    <%= f.label :zero_waste_policy %><br>
+    <%= f.text_field :zero_waste_policy %>
+  </div>
+  <div class="field">
+    <%= f.label :leed_certified %><br>
+    <%= f.text_field :leed_certified %>
+  </div>
+  <div class="field">
+    <%= f.label :recertify_leed %><br>
+    <%= f.text_field :recertify_leed %>
+  </div>
+  <div class="field">
+    <%= f.label :true_zero_waste_audit %><br>
+    <%= f.text_field :true_zero_waste_audit %>
+  </div>
+  <div class="field">
+    <%= f.label :prc_waste_audit %><br>
+    <%= f.text_field :prc_waste_audit %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

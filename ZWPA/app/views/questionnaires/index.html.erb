@@ -1,0 +1,111 @@
+<h1>Listing questionnaires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Square footage</th>
+      <th>Max occupancy</th>
+      <th>Num floors</th>
+      <th>Management structure</th>
+      <th>Waste disposal system</th>
+      <th>Solid waste system</th>
+      <th>Waste management costs</th>
+      <th>Loading dock</th>
+      <th>Freight elevators</th>
+      <th>Location info</th>
+      <th>Trash hauler</th>
+      <th>Trash hauler contract</th>
+      <th>Trash hauler copy</th>
+      <th>Record of waste vol</th>
+      <th>Solid waste storage</th>
+      <th>Solid waste containers</th>
+      <th>Solid waste info</th>
+      <th>Recycling mandated</th>
+      <th>Recycling program</th>
+      <th>Recycling program stream</th>
+      <th>Recycling program info</th>
+      <th>Buy recycling policy</th>
+      <th>Buy recycling policy info</th>
+      <th>Discontinued recycling info</th>
+      <th>Compost waste current</th>
+      <th>Compost waste past</th>
+      <th>Compost program info</th>
+      <th>Toner</th>
+      <th>Cfls</th>
+      <th>Batteries</th>
+      <th>Peripherals</th>
+      <th>Cell phones</th>
+      <th>Tvs</th>
+      <th>Corded equipment</th>
+      <th>Furniture</th>
+      <th>Linens</th>
+      <th>Construction debris</th>
+      <th>Pallets</th>
+      <th>Zero waste policy</th>
+      <th>Leed certified</th>
+      <th>Recertify leed</th>
+      <th>True zero waste audit</th>
+      <th>Prc waste audit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questionnaires.each do |questionnaire| %>
+      <tr>
+        <td><%= questionnaire.square_footage %></td>
+        <td><%= questionnaire.max_occupancy %></td>
+        <td><%= questionnaire.num_floors %></td>
+        <td><%= questionnaire.management_structure %></td>
+        <td><%= questionnaire.waste_disposal_system %></td>
+        <td><%= questionnaire.solid_waste_system %></td>
+        <td><%= questionnaire.waste_management_costs %></td>
+        <td><%= questionnaire.loading_dock %></td>
+        <td><%= questionnaire.freight_elevators %></td>
+        <td><%= questionnaire.location_info %></td>
+        <td><%= questionnaire.trash_hauler %></td>
+        <td><%= questionnaire.trash_hauler_contract %></td>
+        <td><%= questionnaire.trash_hauler_copy %></td>
+        <td><%= questionnaire.record_of_waste_vol %></td>
+        <td><%= questionnaire.solid_waste_storage %></td>
+        <td><%= questionnaire.solid_waste_containers %></td>
+        <td><%= questionnaire.solid_waste_info %></td>
+        <td><%= questionnaire.recycling_mandated %></td>
+        <td><%= questionnaire.recycling_program %></td>
+        <td><%= questionnaire.recycling_program_stream %></td>
+        <td><%= questionnaire.recycling_program_info %></td>
+        <td><%= questionnaire.buy_recycling_policy %></td>
+        <td><%= questionnaire.buy_recycling_policy_info %></td>
+        <td><%= questionnaire.discontinued_recycling_info %></td>
+        <td><%= questionnaire.compost_waste_current %></td>
+        <td><%= questionnaire.compost_waste_past %></td>
+        <td><%= questionnaire.compost_program_info %></td>
+        <td><%= questionnaire.toner %></td>
+        <td><%= questionnaire.cfls %></td>
+        <td><%= questionnaire.batteries %></td>
+        <td><%= questionnaire.peripherals %></td>
+        <td><%= questionnaire.cell_phones %></td>
+        <td><%= questionnaire.tvs %></td>
+        <td><%= questionnaire.corded_equipment %></td>
+        <td><%= questionnaire.furniture %></td>
+        <td><%= questionnaire.linens %></td>
+        <td><%= questionnaire.construction_debris %></td>
+        <td><%= questionnaire.pallets %></td>
+        <td><%= questionnaire.zero_waste_policy %></td>
+        <td><%= questionnaire.leed_certified %></td>
+        <td><%= questionnaire.recertify_leed %></td>
+        <td><%= questionnaire.true_zero_waste_audit %></td>
+        <td><%= questionnaire.prc_waste_audit %></td>
+        <td><%= link_to 'Show', questionnaire %></td>
+        <td><%= link_to 'Edit', edit_questionnaire_path(questionnaire) %></td>
+        <td><%= link_to 'Destroy', questionnaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Questionnaire', new_questionnaire_path %>
