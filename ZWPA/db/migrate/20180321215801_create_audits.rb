@@ -1,4 +1,4 @@
-class CreateAudits < ActiveRecord::Migration
+class CreateAudits < ActiveRecord::Migration[5.1]
   def change
     create_table :audits do |t|
       t.string :name
