@@ -93,7 +93,7 @@ class UserTest < ActiveSupport::TestCase
 	    end
 
 	    should "show that role scope works" do
-	    	assert_equal ["Albin", "Bradley"], User.all.role("administrator").map{ |u| u.last_name}.sort
+	    	assert_equal ["Albin", "Bradley", "Rob"], User.all.role("administrator").map{ |u| u.last_name}.sort
 	    end
 
 	    should "show the proper name method works" do
