@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :first_name, :last_name, :email, :role
 	validates_uniqueness_of :email
 	# Currently there is only one role; more roles can be added if needed
-	validates_inclusion_of :role, :in => ["administrator"]
+	validates_inclusion_of :role, :in => ["administrator"], message: "is not a valid role"
 	validates_presence_of :password, :on => :create
 	validates_presence_of :password_confirmation, :on => :create
 	validates_confirmation_of :password, message: "does not match"
