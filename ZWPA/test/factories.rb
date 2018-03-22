@@ -21,4 +21,15 @@ FactoryBot.define do
 		contact_last_name "Doe"
 		active true
 	end
+
+	factory :audit do
+		name "CMU IS Department"
+		audit_type "Building"
+		start_date "2018-02-18 22:35:42"
+		end_date nil
+		active true
+		user nil
+		client nil
+		questionnaire nil
+	end
 end
