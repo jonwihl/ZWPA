@@ -10,6 +10,7 @@ module Contexts
 		def delete_users
 			@teresa.delete
 			@stacy.delete
+			@rob.delete
 		end
 
 	end
