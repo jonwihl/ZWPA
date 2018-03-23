@@ -85,7 +85,7 @@ class UserTest < ActiveSupport::TestCase
 	    end
 
 	    should "show that alphabetical scope works" do 
-	    	assert_equal ["Albin", "Bradley"], User.all.alphabetical.map{ |u| u.last_name}
+	    	assert_equal ["Albin", "Bradley", "Rob"], User.all.alphabetical.map{ |u| u.last_name}
 	    end
 
 	    should "show that active scope works" do

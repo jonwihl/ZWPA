@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20180321215801) do
 
   create_table "audits", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "audit_type"
     t.datetime "start_date"
     t.datetime "end_date"
     t.boolean "active"

@@ -1,26 +1,6 @@
 {
   "MiniTest": {
     "coverage": {
-      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/audits_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/clients_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/questionnaires_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/users_helper.rb": [
-        1,
-        null
-      ],
       "/Users/Arnav/Desktop/ZWPA/ZWPA/app/models/user.rb": [
         1,
         1,
@@ -39,13 +19,13 @@
         null,
         1,
         null,
-        3,
+        2,
+        1,
+        1,
+        null,
+        null,
         1,
         2,
-        null,
-        null,
-        1,
-        0,
         null,
         null,
         null
@@ -63,86 +43,85 @@
         null,
         null,
         1,
-        0,
-        null,
-        null,
         1,
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
         null,
-        0,
-        0,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        1,
+        1,
         null,
         null,
         null,
         1,
-        0,
-        0,
-        0,
+        2,
+        1,
+        1,
         null,
-        0,
+        1,
         null,
         null,
         null,
         1,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
         null,
         null,
         1,
         1,
-        0,
+        5,
         null,
         null,
         1,
-        0,
+        4,
         null,
         null
       ],
       "/Users/Arnav/Desktop/ZWPA/ZWPA/app/controllers/application_controller.rb": [
         1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
         1,
         0,
         null,
+        1,
+        null,
+        1,
         0,
         null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
+        1,
         null
       ],
-      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/models/audit.rb": [
+      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/application_helper.rb": [
         1,
+        null
+      ],
+      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/audits_helper.rb": [
         1,
+        null
+      ],
+      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/clients_helper.rb": [
         1,
+        null
+      ],
+      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/questionnaires_helper.rb": [
         1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        null
+      ],
+      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/helpers/users_helper.rb": [
         1,
         null
       ],
@@ -177,6 +156,27 @@
         null,
         0,
         null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/Arnav/Desktop/ZWPA/ZWPA/app/models/audit.rb": [
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
         0,
         0,
         0,
@@ -413,6 +413,6 @@
         0
       ]
     },
-    "timestamp": 1521758921
+    "timestamp": 1521789987
   }
 }

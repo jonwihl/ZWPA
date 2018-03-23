@@ -1,56 +1,65 @@
 require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
-      setup do 
-        create_users
-      end
-      
-      # and provide a teardown method as well
-      teardown do
-          delete_users
-      end
-
- 
+  setup do 
+    create_users
+  end
+  
+  teardown do
+      delete_users
+  end
 
   test "should get index" do
     get users_url
     assert_response :success
-    # assert_not_nil assigns(:users)
+    assert_not_nil assigns(:users)
   end
 
-#   test "should get new" do
-#     get :new
-#     assert_response :success
-#   end
+  test "should get new" do
+    get new_user_url
+    assert_response :success
+  end
 
-  # test "should create user" do
-  #   assert_difference('User.count') do
-  #     post :create, user: { active: @user.active, email: @user.email, first_name: @user.first_name, last_name: @user.last_name, password_digest: @user.password_digest, role: @user.role }
-  #   end
+  test "should create a new user" do
+    assert_difference('User.count', 1) do
+      post users_url, params: { user: { active: true, email: "al@prc.com", first_name: "alan", last_name: "bar", password: "secrets1", password_confirmation: "secrets1", role: "administrator" } }
+    end
+    assert_redirected_to user_url(assigns(:user))
+  end
 
-  #   assert_redirected_to user_path(assigns(:user))
-  # end
+  test "should not create a new user with invalid params" do
+    post users_url, params: { user: { active: true, email: "al@prc.com", first_name: "alan", last_name: "bar", password: "se", password_confirmation: "se", role: "administrator" } }
+    assert_template :new
+  end
 
-  # test "should show user" do
-  #   get :show, id: @user
-  #   assert_response :success
-  # end
 
-  # test "should get edit" do
-  #   get :edit, id: @user
-  #   assert_response :success
-  # end
+  test "should show user" do
+    get user_url(@stacy)
+    assert_equal "Stacy", assigns(:user).first_name
+    assert_response :success
+  end
 
-  # test "should update user" do
-  #   patch :update, id: @user, user: { active: @user.active, email: @user.email, first_name: @user.first_name, last_name: @user.last_name, password_digest: @user.password_digest, role: @user.role }
-  #   assert_redirected_to user_path(assigns(:user))
-  # end
+  test "should get edit" do
+    get edit_user_url(@stacy)
+    assert_not_nil assigns(:user)
+    assert_equal "Stacy", assigns(:user).first_name
+    assert_response :success
+  end
 
-  # test "should destroy user" do
-  #   assert_difference('User.count', -1) do
-  #     delete :destroy, id: @user
-  #   end
+  test "should update a user" do
+    patch user_url(@stacy), params: { user: { active: true, email: "al@prc.com", first_name: "alan", last_name: "bar", password: "secrets1", password_confirmation: "secrets1", role: "administrator"} }
+    assert_redirected_to user_url(@stacy)
+    assert_equal "alan bar is updated.", flash[:notice]    
+  end
 
-  #   assert_redirected_to users_path
-  # end
+  test "should fail to update user with invalid params" do
+    patch user_url(@stacy), params: { user: { active: true, email: "al@prc.com", first_name: "alan", last_name: "bar", password: "secrets1", password_confirmation: "secrets1", role: "trator"}}
+    assert_template :edit
+  end
+
+  test "should destroy user" do
+    assert_difference('User.count', -1) { delete user_path(@stacy) }
+    assert_redirected_to users_path
+  end
+
 end

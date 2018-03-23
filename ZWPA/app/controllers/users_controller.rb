@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to home_path, notice: "The user has been added to the system"
+      redirect_to @user, notice: "The user has been added to the system"
     else
       flash[:error] = "This user could not be created."
       render "new"
@@ -48,6 +48,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password_digest, :role, :active)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :active)
     end
 end
