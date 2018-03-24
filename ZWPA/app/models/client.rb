@@ -9,7 +9,7 @@ class Client < ActiveRecord::Base
   	validates_format_of :zip, with: /\A\d{5}\z/, message: "should be five digits long"
 
 	# email format
-  	validates_format_of :contact_email, with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov))\z/i, message: "is not a valid format"
+  	validates_format_of :contact_email, with: /\A([\w^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov))\z/i, message: "is not a valid format"
 
     # phone can have dashes, spaces, dots and parens, but must be 10 digits
   	validates_format_of :contact_phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/, message: "should be 10 digits (area code needed) and delimited with dashes only"

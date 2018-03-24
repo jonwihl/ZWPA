@@ -26,6 +26,8 @@ class ClientTest < ActiveSupport::TestCase
   	should allow_value("(123)-456-7890").for(:contact_phone)
   	should_not allow_value("123-456-PHIP").for(:contact_phone)
 
+  	should allow_value("a@prc.org").for(:contact_email)
+  	
   	context "Creating clients context" do
 	    # create the objects I want with factories
 	    setup do 
