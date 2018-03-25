@@ -10,7 +10,7 @@
             <table class="striped centered">
                   <thead>
                     <tr>
-                        <th >Client</th>
+                        <th>Client</th>
                         <th>Contact</th>
                         <th>View</th>
                         <th>Edit</th>
@@ -18,13 +18,14 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <% @clients.each do |client| %>
                     <tr>
-                      <td><%= client.name %></td>
                       <td><%= client.proper_name =%></td>
                       <td><a class="wave-effect waves-light btn"> View </a></td>
                       <td><a class="wave-effect waves-light btn"> Edit</a></td>
                       <td><a class="wave-effect waves-light btn red"> Delete</a></td>
                     </tr>
+                    <% end %>
                   </tbody>
                 </table>
               </div>
