@@ -39,6 +39,15 @@ gem 'validates_timeliness', '~> 4.0.2'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '3.1.7'
 
+gem 'simple_form', '3.5.0'
+
+gem 'materialize-form', '1.0.8'
+
+gem 'materialize-sass', '0.100.2'
+
+gem 'material_icons'
+
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

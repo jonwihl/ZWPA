@@ -9,10 +9,17 @@
                     
                         <br>
                         <div class="col s6">
-
+                            <%= f.input :first_name, wrapper_html: { class: 'col s12' } %>
+                            <%= f.input :last_name, wrapper_html: { class: 'col s12' } %>
+                            <%= f.input :email, wrapper_html: { class: 'col s12' } %>
                           <%= f.input :email, wrapper_html: { class: 'col s12' } %>
                           <%= f.input :password_digest, wrapper_html: { class: 'col s12' } %>
+                          <%= f.input :email, wrapper_html: { class: 'col s12' } %>
+                          <div class="input-field col s12">
+                            <%= f.select :role, options_for_select(Users.roles), :include_blank => "Select your Role" %>
+                          </div>
                         </div>
+
                             
                         <div class="col s12">
                             <div class="btn waves-effect waves-light"> Back</a>
