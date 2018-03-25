@@ -1,65 +1,44 @@
-<%= form_for(@client) do |f| %>
-  <% if @client.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+<div class="container">
+    <div class="left-align">
+        <div class="row">
+            <div class="col s6">
+                <div class="row">
+                    <%= simple_form_for @client do |f| %>
+                        <br>
 
-      <ul>
-      <% @client.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+                        <%= render :partial => "partials/error", locals: {f: f} %>
+                        <br>
+                        <div class="col s6">
+                          <%= f.input :street_1, wrapper_html: { class: 'col s12'} %>
+                          <%= f.input :street_2, wrapper_html: { class: 'col s12' } %> 
+
+                          <%= f.input :city, wrapper_html: { class: 'col s6' } %>
+                          <%= f.input :state, wrapper_html: { class: 'col s6' } %>
+                          <%= f.inpit :zip, wrapper_html: {class: 'col s12'} %> 
+                        </div>
+
+                        <div class="col s6">
+                          <i class="material-icons prefix">account_circle</i>
+                          <%= f.input :contact_first_name, wrapper_html: { class: 'col s6' } %>
+                          <%= f.input :contact_last_name, wrapper_html: { class: 'col s6' } %>
+                          <%= f.input :contact_title, wrapper_html: { class: 'col s12' } %>
+                          <%= f.input :contact_phone, wrapper_html: { class: 'col s12' } %>
+
+                        </div>
+                            
+                        <div class="col s12">
+                            <div class="btn waves-effect waves-light"> Back</a>
+                            <div class="btn waves-effect waves-light" >
+                              <%= f.submit "Submit" %>
+                         </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
     </div>
-  <% end %>
+</div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :street_1 %><br>
-    <%= f.text_field :street_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :street_2 %><br>
-    <%= f.text_field :street_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_phone %><br>
-    <%= f.text_field :contact_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_email %><br>
-    <%= f.text_field :contact_email %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_title %><br>
-    <%= f.text_field :contact_title %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_first_name %><br>
-    <%= f.text_field :contact_first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_last_name %><br>
-    <%= f.text_field :contact_last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+
+
