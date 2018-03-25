@@ -7,8 +7,14 @@
 
 	  <!-- CSS  -->
 	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<!-- 	  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+ --><!-- 	  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+ -->	  
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 	</head>
 
 
@@ -17,14 +23,15 @@
 			<div class="nav-wrapper container"> 
 			  <ul class="left hide-on-med-and-down">
 			  	<li>
+
 			  		<a id="logo-container" href="#" class="brand-logo">
-				    	<img src="logo 2.png">
+				    	<%= link_to(image_tag('logo 2.png'), audits_url) %>
 				    </a>
 				</li>
 			  </ul>
 			  <ul class="right hide-on-med-and-down"></li>
 			    <li><a href="#">Log out</a></li>
-
+					<td><%= yield %></td>
 			  </ul>
     	</nav>
 
@@ -39,6 +46,6 @@
 
 		<!-- scripts -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	  	<script type="text/javascript" src="js/materialize.min.js"></script>
-	</body>
+<!-- 	  	<script type="text/javascript" src="js/materialize.min.js"></script>
+ -->	</body>
 </html>
