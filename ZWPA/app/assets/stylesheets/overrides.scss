@@ -248,7 +248,11 @@ label {
 
 body {
   background-color: #FFFDFE;
+  display: flex;
+          min-height: 100vh;
+          flex-direction: column;
 }
+
 
 .center {
   text-align: center;
@@ -301,3 +305,5 @@ body {
 a.active {
   color: red;
 }
+
+

@@ -3,40 +3,25 @@
 	<head>
 	    <title>PRC ZWPA</title>
 	    <%= csrf_meta_tags %>
-
 	    <%= stylesheet_link_tag 'application', media: 'all' %>
 	    <%= javascript_include_tag 'application' %>
 	    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
 	    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Nunito|Varela+Round" %>
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   	</head>
 	<body>
-		<nav class="light-blue lighten-1" role="navigation">
-			<div class="nav-wrapper container"> 
-			  <ul class="left hide-on-med-and-down">
-			  	<li>
+		<%= render partial: 'partials/nav' %>
 
-			  		<a id="logo-container" href="#" class="brand-logo">
-				    	<%= link_to(image_tag('logo 2.png'), audits_url) %>
-				    </a>
-				</li>
-			  </ul>
-			  <ul class="right hide-on-med-and-down"></li>
-			    <li><a href="#">Log out</a></li>
-					<td><%= yield %></td>
-			  </ul>
-    	</nav>
+		<% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, id: "flash_#{name}" %>
+        <% end %>
 
-    	<div class="footer-copyright">
-            <div class="container">
-            Webmasters: Jonathan Wihl, Vinitha Ranganeni, Arnav Gupta
-            </div>
-        </div>
+        <div class="container">
 
+    	<td><%= yield %></td>
 
+    	</div>
 
-
-		<!-- scripts -->
-		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!-- 	  	<script type="text/javascript" src="js/materialize.min.js"></script>
- -->	</body>
+    	<%= render partial: 'partials/footer' %>
+	</body>
 </html>

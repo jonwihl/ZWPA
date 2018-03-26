@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.active = true
     if @user.save
       session[:user_id] = @user.id
       redirect_to @user, notice: "The user has been added to the system"
