@@ -1,3 +1,10 @@
+
+
+  main {
+    flex: 1 0 auto;
+  }
+      
+
 html {
   // Preloaded with four fonts; uncomment the one you prefer
   font-family: 'Nunito', sans-serif;
@@ -247,6 +254,7 @@ label {
     opacity: 0; }
 
 body {
+    flex-direction: column;
   background-color: #FFFDFE;
   display: flex;
           min-height: 100vh;
