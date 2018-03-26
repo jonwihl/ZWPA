@@ -1,49 +1,41 @@
-<h1>Listing clients</h1>
+<h4><strong>Clients</strong></h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Street 1</th>
-      <th>Street 2</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Contact phone</th>
-      <th>Contact email</th>
-      <th>Contact title</th>
-      <th>Contact first name</th>
-      <th>Contact last name</th>
-      <th>Active</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="container">
+      <div class="section">
+        <div class="left-align">
+          <h4><strong>Clients</strong></h4>
+        
+          <div class="row">
+            <div class="center-align">
+            <table class="striped centered">
+                  <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Contact</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @clients.each do |client| %>
+                    <tr>
+                      <td><%= client.proper_name =%></td>
+                      <td><a class="wave-effect waves-light btn"> View </a></td>
+                      <td><a class="wave-effect waves-light btn"> Edit</a></td>
+                      <td><a class="wave-effect waves-light btn red"> Delete</a></td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+        </div>
 
-  <tbody>
-    <% @clients.each do |client| %>
-      <tr>
-        <td><%= client.name %></td>
-        <td><%= client.street_1 %></td>
-        <td><%= client.street_2 %></td>
-        <td><%= client.city %></td>
-        <td><%= client.state %></td>
-        <td><%= client.zip %></td>
-        <td><%= client.contact_phone %></td>
-        <td><%= client.contact_email %></td>
-        <td><%= client.contact_title %></td>
-        <td><%= client.contact_first_name %></td>
-        <td><%= client.contact_last_name %></td>
-        <td><%= client.active %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+        </div>
+      </div>
+    </div>
 
-<%= link_to 'New Client', new_client_path %>
+
+
+
