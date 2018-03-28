@@ -1,33 +1,31 @@
-<div class ="center-align">
-    <h4> Manage Audits </h4>
-</div>
 
 
-     <div class="container">
-      <div class="section">
-
-        <div class="left-align">
-        <div class="col s4">
 
 
-        <% @clients.each do |client| %>
-        <!-- Dropdown Trigger Cleint List-->
-          <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Audits</a>
+      <div class = "row"> 
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Welcome back!<i class="material-icons right">more_vert</i></span>
+      <p><%= link_to 'Manage Users', users_path %></p>
+      <p><%= link_to 'Manage Clients', clients_path %></p>
+    </div>
+  </div>
+        </row>
 
-          <!-- Dropdown Structure -->
-          <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!"><%= client.name %></a></li>
-          </ul>
-        <% end %>
 
-        </div>
-      </div>
 
       <div class="row">
       <div class="center-align">
-              
+           
+        <hr>
+      <div class="row">  
+      <div class ="center-align">
+    <h5> Manage Audits </h5>
+</div> 
       <% unless @audits.nil? %>
-        <table class="striped centered">
+        <table class="striped centered" id = "dashboard">
               <thead>
                 <tr>
                     <th>Audit Name</th>
@@ -50,13 +48,14 @@
             </table>
             <% end %>
           </div>
+      </div>
     </div>
-    </div>
+    
 
-    <div class="container">
-    <div class="row">
-      <a class="wave-effect waves-light btn"> Create Event Audit</a>
-      <a class="wave-effect waves-light btn"> Create Building AUdit</a>
-    </div>
+   
+    <div class="row center">
+      <a class="btn waves-effect waves-light  teal lighten-4"> Create Event Audit</a>
+      
+      <a class="btn waves-effect waves-light  teal lighten-4"> Create Building AUdit</a>
     </div>
   </div>

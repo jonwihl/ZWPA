@@ -12,20 +12,30 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require materialize
 //= require materialize-sprockets
 //= require materialize-form
 //= require_tree .
 //= require dataTables/jquery.dataTables
-
 // @import "materialize";
 // @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 $(document).ready(function() {
     $('select').material_select();
-    $("#userlist").dataTable()
-  });
+    $("#userlist").dataTable( {
+    columnDefs: [
+        { targets: [0, 1, 2, 3, 4], visible: true, },
+        { targets: [5, 6], visible: true, "orderable": false }
+    ]
+} )
+    $("#clientlist").dataTable( {
+    columnDefs: [
+        { targets: [0, 1, 2, 3], visible: true, },
+        { targets: [4,5], visible: true, "orderable": false }
+    ]
+} )
+    $("#dashboard").dataTable();
+})
 
  // Flash fade
 $(function() {
