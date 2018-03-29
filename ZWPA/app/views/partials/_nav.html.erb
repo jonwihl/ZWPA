@@ -1,5 +1,16 @@
-<nav id="topbar">
-		<ul class="right">
-	      <li><%= link_to 'Logout', logout_path %></li>
-	    </ul>
-</nav>
+<nav class="teal darken-1" role="navigation">
+            <div class="nav-wrapper container"> 
+              <ul class="left hide-on-med-and-down">
+                <li>
+
+                    <a id="logo-container" href="#" class="brand-logo">
+                        <%= link_to(image_tag('logo 2.png'), audits_url) %>
+                    </a>
+                </li>
+              </ul>
+              <ul class="right hide-on-med-and-down"></li>
+                <li><%= link_to 'Manage Users', users_path %></li>
+                <li><%= link_to 'Manage Clients', clients_path %></li>
+                <li><a href="#">Log out</a></li>
+              </ul>
+        </nav>
