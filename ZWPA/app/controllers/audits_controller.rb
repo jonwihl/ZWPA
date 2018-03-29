@@ -37,7 +37,7 @@ class AuditsController < ApplicationController
 
   def destroy
    @audit.destroy
-    flash[:notice] = "Successfully removed #{@audit.proper_name} from system."
+    flash[:notice] = "Successfully removed #{@audit.name} from system."
     redirect_to audits_url
   end
 
@@ -49,6 +49,6 @@ class AuditsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def audit_params
-      params.require(:audit).permit(:name, :type, :start_date, :end_date, :active, :references, :references, :references)
+      params.require(:audit).permit(:name, :audit_type, :start_date, :end_date, :active, :references, :references, :references)
     end
 end
