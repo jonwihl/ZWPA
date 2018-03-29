@@ -35,7 +35,7 @@ class ClientsController < ApplicationController
   end
 
   def destroy
-   @client.destroy
+    @client.destroy
     flash[:notice] = "Successfully removed #{@client.proper_name} from system."
     redirect_to clients_url
   end

@@ -25,29 +25,22 @@ class QuestionnairesController < ApplicationController
   # POST /questionnaires.json
   def create
     @questionnaire = Questionnaire.new(questionnaire_params)
-
-    respond_to do |format|
-      if @questionnaire.save
-        format.html { redirect_to @questionnaire, notice: 'Questionnaire was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @questionnaire }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @questionnaire.errors, status: :unprocessable_entity }
-      end
+    if @questionnaire.save
+      redirect_to @questionnaire, notice: "The questionnaire has been saved."
+    else
+      flash[:error] = "The questionnaire could not be saved."
+      render "new"
     end
   end
 
   # PATCH/PUT /questionnaires/1
   # PATCH/PUT /questionnaires/1.json
   def update
-    respond_to do |format|
-      if @questionnaire.update(questionnaire_params)
-        format.html { redirect_to @questionnaire, notice: 'Questionnaire was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @questionnaire.errors, status: :unprocessable_entity }
-      end
+    if @questionnaire.update_attributes(questionnaire_params)
+      flash[:notice] = "The questionnaire has been updated."
+      redirect_to @questionnaire
+    else
+      render :action => 'edit'
     end
   end
 
@@ -55,10 +48,8 @@ class QuestionnairesController < ApplicationController
   # DELETE /questionnaires/1.json
   def destroy
     @questionnaire.destroy
-    respond_to do |format|
-      format.html { redirect_to questionnaires_url }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Successfully removed the questionnaire from system."
+    redirect_to questionnaires_url
   end
 
   private
