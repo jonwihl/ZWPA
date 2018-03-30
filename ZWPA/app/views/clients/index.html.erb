@@ -3,10 +3,11 @@
 <table id = "clientlist" class="display">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Contact Phone</th>
+      <th>Client</th>
       <th>Contact Name</th>
+      <th>Contact Phone</th>
       <th>Contact Email</th>
+      <th>Address</th>
       <th></th>
       <th></th>
     </tr>
@@ -16,9 +17,10 @@
     <% @clients.each do |client| %>
       <tr>
         <td><%= client.name %></td>
+        <td><%= client.proper_name_title %></td>
         <td><%= client.contact_phone %></td>
-        <td><%= client.contact_first_name %></td>
         <td><%= client.contact_email %></td>
+        <td><%= client.proper_address %></td>
         <td><%= link_to 'Show', client, class: :"btn-flat small waves-effect waves-light teal lighten-4" %></td>
         <td><%= link_to 'Edit', edit_client_path(client), class: :"btn-flat  waves-effect waves-light teal lighten-4" %></td>
         

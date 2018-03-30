@@ -55,7 +55,9 @@ $(document).ready(function() {
     } );
 } );
 
-
+$( document ).ready(function) {
+  $('.dropdown-trigger').dropdown();
+});
 
 //  var elem = document.querySelector('select');
 //   var instance = M.FormSelect.init(elem, options);
