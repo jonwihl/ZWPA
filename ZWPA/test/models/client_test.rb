@@ -50,5 +50,15 @@ class ClientTest < ActiveSupport::TestCase
 	    should "show that proper name method works" do
 	    	assert_equal "Larry Heimann", @cmu.proper_name
 	    end   
+
+	    should "show that proper_name_title method works" do
+	    	assert_equal "Larry Heimann (IS Faculty)", @cmu.proper_name_title
+	    	assert_equal "John Doe", @phipps.proper_name_title
+	    end
+
+	    should "show that proper address method works" do
+	    	assert_equal "5000 Forbes Ave" + "\n" + "Pittsburgh, PA 15213", @cmu.proper_address
+	    	assert_equal "Phipps Conservatory" + "\n" + "1 Schenley Drive" + "\n" + "Pittsburgh, PA 15213", @phipps.proper_address
+	    end
 	end
 end

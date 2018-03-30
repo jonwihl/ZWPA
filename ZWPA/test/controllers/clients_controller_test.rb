@@ -42,7 +42,7 @@ class ClientsControllerTest < ActionDispatch::IntegrationTest
   test "should get edit" do
     get edit_client_url(@phipps)
     assert_not_nil assigns(:client)
-   assert_equal "Phipps Conservatory", assigns(:client).name
+    assert_equal "Phipps Conservatory", assigns(:client).name
     assert_response :success
   end
 

@@ -12,11 +12,13 @@ FactoryBot.define do
 	factory :client do
 		name "CMU"
 		street_1 "5000 Forbes Ave"
+		street_2 nil
 		city "Pittsburgh"
 		state "PA"
 		zip "15213"
 		contact_phone "1234567890"
 		contact_email "example@andrew.cmu.edu"
+		contact_title nil
 		contact_first_name "John"
 		contact_last_name "Doe"
 		active true
@@ -31,5 +33,51 @@ FactoryBot.define do
 		user nil
 		client nil
 		questionnaire nil
+	end
+
+	factory :questionnaire do
+	    square_footage 10000
+	    max_occupancy 500
+	    num_floors 3
+	    management_structure "N/A"
+	    waste_disposal_system "centralized"
+	    solid_waste_system "owner"
+	    waste_management_costs "yes"
+	    loading_dock "yes"
+	    freight_elevators "yes"
+	    location_info "N/A"
+	    trash_hauler "N/A"
+	    trash_hauler_contract "no"
+	    trash_hauler_copy "no"
+	    record_of_waste_vol "no"
+	    solid_waste_storage "N/A"
+	    solid_waste_containers "dumpster"
+	    solid_waste_info "N/A"
+	    recycling_mandated "yes"
+	    recycling_program "yes"
+	    recycling_program_stream "single"
+	    recycling_program_info "N/A"
+	    buy_recycling_policy "no"
+	    buy_recycling_policy_info "N/A"
+	    discontinued_recycling_info "N/A"
+	    compost_waste_current "yes"
+	    compost_waste_past "no"
+	    compost_program_info "N/A"
+	    toner "yes"
+	    cfls "yes"
+	    batteries "yes"
+	    peripherals "yes"
+	    cell_phones "yes"
+	    tvs "yes"
+	    corded_equipment "yes"
+	    furniture "yes"
+	    linens "yes"
+	    construction_debris "yes"
+	    pallets "yes"
+	    zero_waste_policy "yes"
+	    leed_certified "yes"
+	    recertify_leed "yes"
+	    true_zero_waste_audit "yes"
+	    prc_waste_audit "yes"
 	end
 end
