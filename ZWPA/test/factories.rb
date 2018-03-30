@@ -12,11 +12,13 @@ FactoryBot.define do
 	factory :client do
 		name "CMU"
 		street_1 "5000 Forbes Ave"
+		street_2 nil
 		city "Pittsburgh"
 		state "PA"
 		zip "15213"
 		contact_phone "1234567890"
 		contact_email "example@andrew.cmu.edu"
+		contact_title nil
 		contact_first_name "John"
 		contact_last_name "Doe"
 		active true

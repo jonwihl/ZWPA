@@ -19,7 +19,23 @@ class Client < ActiveRecord::Base
 
   	# Returns the contact's name in the following format: first_name last_name
     def proper_name
-      contact_first_name + " " + contact_last_name
+      	contact_first_name + " " + contact_last_name
+    end
+
+    def proper_name_title 
+    	if contact_title.nil?
+    		proper_name
+    	else
+    		contact_first_name + " " + contact_last_name + " " + "(" + contact_title + ")"
+    	end
+    end
+
+    def proper_address
+    	if street_2.nil?
+    		street_1 + "\n" + city + ", " + state + " " + zip
+    	else
+    		street_1 + "\n" + street_2 + "\n" + city + ", " + state + " " + zip
+    	end
     end
 
   	private
