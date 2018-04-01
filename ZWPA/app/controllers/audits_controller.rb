@@ -18,11 +18,15 @@ class AuditsController < ApplicationController
 
   def create
     @audit = Audit.new(audit_params)
-    if @audit.save
-      redirect_to @audit, notice: "The audit has been added to the system"
-    else
-      flash[:error] = "This audit could not be created."
-      render "new"
+    @audit.start_date = Date.today
+    @audit.end_date = nil
+    respond_to do |format|
+      if @audit.save
+        format.html { redirect_to @audit, notice: "The audit has been added to the system" }
+        format.js
+      else
+        format.html { render action: 'new' }
+      end
     end
   end
 
