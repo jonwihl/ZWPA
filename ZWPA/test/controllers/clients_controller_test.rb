@@ -62,4 +62,8 @@ class ClientsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to clients_path
   end
 
+  test "should archive/deactivate client" do
+    assert_difference('Client.active.count', -1) { get archive_client_path(@cmu) }
+    assert_redirected_to clients_path  
+  end
 end

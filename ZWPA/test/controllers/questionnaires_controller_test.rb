@@ -2,6 +2,9 @@ require 'test_helper'
 
 class QuestionnairesControllerTest < ActionDispatch::IntegrationTest
   setup do 
+    @cmu = FactoryBot.create(:client, contact_first_name: "Larry", contact_last_name: "Heimann", contact_title: "IS Faculty")
+    @teresa = FactoryBot.create(:user, first_name: "Teresa", last_name: "Bradley", email: "teresa@prc.org")
+    @cmu_audit = FactoryBot.create(:audit, end_date: Date.current, user: @teresa, client: @cmu)
     @questionnaire = FactoryBot.create(:questionnaire)
   end
 
@@ -11,7 +14,7 @@ class QuestionnairesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_questionnaire_path
+    get new_questionnaire_path(audit: @cmu_audit.id)
     assert_response :success
   end
 

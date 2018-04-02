@@ -62,4 +62,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to users_path
   end
 
+  test "should archive/deactivate user" do
+    assert_difference('User.active.count', -1) { get archive_user_path(@stacy) }
+    assert_redirected_to users_path  
+  end
 end

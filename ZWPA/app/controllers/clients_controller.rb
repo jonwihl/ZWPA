@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_action :set_client, only: [:show, :edit, :update, :destroy, :archive]
 
   def index
     @clients = Client.all
@@ -39,6 +39,17 @@ class ClientsController < ApplicationController
     @client.destroy
     flash[:notice] = "Successfully removed #{@client.proper_name} from system."
     redirect_to clients_url
+  end
+
+  def archive
+    @client.active = false
+    if @client.save
+      flash[:notice] = "Successfully archived #{@client.proper_name}."
+      redirect_to clients_url
+    else
+      flash[:notice] = "Could not archive #{@client.proper_name}."
+      redirect_to clients_url
+    end
   end
 
   private
