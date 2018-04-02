@@ -20,8 +20,10 @@
 // @import "materialize";
 // @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
+
 $(document).ready(function() {
     $('select').material_select();
+    $('#town_details').after('<%= j render("new_client_form") %>');
     $("#userlist").dataTable( {
     columnDefs: [
         { targets: [0, 1, 2, 3, 4], visible: true, },

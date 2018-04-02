@@ -7,7 +7,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @audit.type %>
+  <%= @audit.audit_type %>
 </p>
 
 <p>
@@ -25,20 +25,7 @@
   <%= @audit.active %>
 </p>
 
-<p>
-  <strong>References:</strong>
-  <%= @audit.references %>
-</p>
 
-<p>
-  <strong>References:</strong>
-  <%= @audit.references %>
-</p>
-
-<p>
-  <strong>References:</strong>
-  <%= @audit.references %>
-</p>
 
 <%= link_to 'Edit', edit_audit_path(@audit) %> |
 <%= link_to 'Back', audits_path %>

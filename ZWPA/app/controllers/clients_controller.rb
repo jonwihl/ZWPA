@@ -17,6 +17,7 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(client_params)
+    @client.active = true
     if @client.save
       redirect_to @client, notice: "The client has been added to the system"
     else

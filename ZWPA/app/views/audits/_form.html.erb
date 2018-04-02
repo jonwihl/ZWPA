@@ -1,37 +1,28 @@
-<%= form_for(@audit) do |f| %>
-  <% if @audit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@audit.errors.count, "error") %> prohibited this audit from being saved:</h2>
+<div class="row valign-wrapper">
+    <div class="col s12 valign">
+        <div class="card white">
+            <div class="card-content">
+              <div id = "new_audit_card">
+                   
+            <%= render 'new_audit_card' %>
 
-      <ul>
-      <% @audit.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+
+            </div>
+          </div>
+        </div>
     </div>
-  <% end %>
+  </div>
+  <div class="row valign-wrapper">
+    <div class="col s12 valign">
+        <div class="card white">
+            <div class="card-content">
+               <span class="card-title">Quick add client</span>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+                        <%= render 'new_client_ajax' %>
+
+                           
+            </div>
+        </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :audit_type %><br>
-    <%= f.text_field :audit_type %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.datetime_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.datetime_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+

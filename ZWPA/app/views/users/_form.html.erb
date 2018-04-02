@@ -5,9 +5,9 @@
 
                 <%= simple_form_for @user do |f| %>        
                  
-                      <span class="card-title"><%= controller.action_name.capitalize %> Item</span>
-                      <%= f.input :first_name %>
-                        <%= f.input :last_name %>
+                      <span class="card-title"><%= controller.action_name.capitalize %> User</span>
+                        <%= f.input :first_name , wrapper_html: { class: 'col s6' }%>
+                        <%= f.input :last_name , wrapper_html: { class: 'col s6' }%>
                         <%= f.input :email %>
                         <%= f.input :password %>
                         <%= f.input :password_confirmation %>
@@ -17,13 +17,14 @@
                       
                 <br>
                         <br>
+
                         <%= f.submit nil, class: :"btn waves-effect waves-light  teal lighten-4" %>
                         <%= link_to 'Cancel', users_path, class: :"btn waves-effect waves-light #ffcdd2 red lighten-4" %>
 
                   <% end %>
 
-            <div>
-                
+            
+
         </div>
     </div>
 </div>
