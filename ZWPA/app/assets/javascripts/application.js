@@ -32,8 +32,8 @@ $(document).ready(function() {
 } )
     $("#clientlist").dataTable( {
     columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
-        { targets: [4,5], visible: true, "orderable": false }
+        { targets: [0, 1, 2, 3, 4], visible: true, },
+        { targets: [5], visible: true, "orderable": false }
     ]
 } )
     $("#dashboard").dataTable();
