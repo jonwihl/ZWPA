@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  start_date: 2018-03-21 17:58:01
+  end_date: 2018-03-21 17:58:01
+  active: false
+  references: 
+  references: 
+  references: 
+
+two:
+  name: MyString
+  type: 
+  start_date: 2018-03-21 17:58:01
+  end_date: 2018-03-21 17:58:01
+  active: false
+  references: 
+  references: 
+  references: 

@@ -1,0 +1,32 @@
+<%= simple_form_for @client, remote: true do |f| %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    
+    <%= f.input :name, wrapper_html: { class: 'col s12' } %>
+
+    <div class="col s6">
+      <%= f.input :contact_first_name, wrapper_html: { class: 'col s6' } %>
+      <%= f.input :contact_last_name, wrapper_html: { class: 'col s6' } %>
+
+      <%= f.input :contact_title, wrapper_html: { class: 'col s12' } %>
+      <%= f.input :contact_phone, wrapper_html: { class: 'col s12' } %>
+
+    </div>
+
+    <div class="col s6">
+      <%= f.input :street_1, wrapper_html: { class: 'col s12'} %>
+      <%= f.input :street_2, wrapper_html: { class: 'col s12' } %> 
+
+      <%= f.input :city, wrapper_html: { class: 'col s12' } %>
+      <%= f.input :state, wrapper_html: { class: 'col s6' } %>
+      <%= f.input :zip, wrapper_html: {class: 'col s6'} %> 
+      
+    </div>
+
+    
+    <div class = "center">
+          
+        <%= f.submit nil, class: :"btn waves-effect waves-light  teal lighten-4" %>
+      </div>
+<% end %>
+              
+ 

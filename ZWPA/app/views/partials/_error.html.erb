@@ -1,0 +1,11 @@
+<% if f.object.errors.any? %>
+	<%= f.error_notification %>
+	<div data-alert data-options="animation_speed:500;" class="error-alert-box <%= flash[:notice] ? "success" : "warning" %>">
+    	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        	<ul>
+            	<% f.object.errors.full_messages.each do |message| %>
+                	<li><%= message %></li>
+                <% end %>
+            </ul>
+    </div>
+<% end %>

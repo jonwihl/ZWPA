@@ -1,0 +1,34 @@
+<h5>Listing users</h3>
+
+<table id = "userlist" class="display">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= user.active %></td>
+        <td><%= link_to 'Show', user, class: :"btn-flat small waves-effect waves-light teal lighten-4" %></td>
+        <td><%= link_to 'Edit', edit_user_path(user), class: :"btn-flat  waves-effect waves-light teal lighten-4" %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path, class: :"btn-flat  waves-effect waves-light teal lighten-4" %>

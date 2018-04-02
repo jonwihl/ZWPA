@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @audit.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @audit.audit_type %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @audit.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @audit.end_date %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @audit.active %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_audit_path(@audit) %> |
+<%= link_to 'Back', audits_path %>
