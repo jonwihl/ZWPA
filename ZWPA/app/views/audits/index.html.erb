@@ -1,8 +1,4 @@
-
-
-
-
-      <div class = "row"> 
+<div class = "row"> 
   <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
     </div>
@@ -12,30 +8,28 @@
       <p><%= link_to 'Manage Clients', clients_path %></p>
     </div>
   </div>
-        </row>
+</div>
 
-
-
-      <div class="row">
-      <div class="center-align">
+<div class="row">
+  <div class="center-align">
            
-        <hr>
-      <div class="row">  
-      <div class ="center-align">
-    <h5> Manage Audits </h5>
-</div> 
-      <% unless @audits.nil? %>
+    <hr>
+    <div class="row">  
+        <div class ="center-align">
+        <h5> Manage Audits </h5>
+    </div> 
+    <% unless @audits.nil? %>
         <table class="striped centered" id = "dashboard">
-              <thead>
+            <thead>
                 <tr>
                     <th>Audit Name</th>
                     <th>Start Date</th>
                     <th>Status</th>
                     <th>Client</th>
                 </tr>
-              </thead>
+            </thead>
 
-              <tbody>
+            <tbody>
                 <% @audits.each do |audit| %>
                 <tr>
                   <td><%= audit.name %></td>
