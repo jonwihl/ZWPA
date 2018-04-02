@@ -1,21 +1,15 @@
-require 'simplecov'
-SimpleCov.start 'rails'
 ENV["RAILS_ENV"] ||= "test"
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'contexts'
 
 class ActiveSupport::TestCase
-  	ActiveRecord::Migration.check_pending!
+  ActiveRecord::Migration.check_pending!
 
-  	# include the Contexts module for all tests
-  	include Contexts
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  #
+  # Note: You'll currently still have to declare fixtures explicitly in integration tests
+  # -- they do not yet inherit this setting
+  fixtures :all
 
-  	# Helper method to increase readability
-  	def deny(condition, msg="")
-    	assert !condition, msg
-  	end
-
-	# Spruce up minitest results...
-  	Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
+  # Add more helper methods to be used by all tests here...
 end
