@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :archive]
   # authorize_resource - TODO
 
   def index
@@ -40,6 +40,13 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     flash[:notice] = "Successfully removed #{@user.proper_name} from system."
+    redirect_to users_url
+  end
+
+  def archive
+    @user.active = false
+    @user.save
+    flash[:notice] = "Successfully archived #{@user.proper_name}."
     redirect_to users_url
   end
 
