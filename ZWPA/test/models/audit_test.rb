@@ -53,5 +53,10 @@ class AuditTest < ActiveSupport::TestCase
 	    should "show that audit_type scope works" do
 	    	assert_equal ["CMU IS Department", "Phipps Conservatory Garden"], Audit.all.type("Building").map{|u| u.name}.sort
 	    end
+
+	    should "show that status method works" do
+	    	assert_equal "Complete", @cmu_audit.status 
+	    	assert_equal "In Progress", @phipps_audit.status
+	    end
 	end
 end

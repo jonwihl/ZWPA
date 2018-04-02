@@ -14,7 +14,7 @@ class QuestionnairesController < ApplicationController
 
   # GET /questionnaires/new
   def new
-    @audit =  Audit.find(params[:audit]) 
+    @audit = Audit.find(params[:audit]) 
     @questionnaire = Questionnaire.new
   end
 
