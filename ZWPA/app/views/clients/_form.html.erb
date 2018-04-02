@@ -1,33 +1,31 @@
-<div class="container">
-    <div class="left-align">
-        
-            
-                <div class="row">
+<div class="row valign-wrapper">
+    <div class="col s12 valign">
+        <div class="card white">
+            <div class="card-content">
                     <%= simple_form_for @client do |f| %>
-                        <br>
+                    <span class="card-title"><%= controller.action_name.capitalize %> Client</span>
                         
-                        <%= render :partial => "partials/error", locals: {f: f} %>
-                        <br>
-                        <div class="col s6">
-                          <%= f.input :street_1, wrapper_html: { class: 'col s12'} %>
-                          <%= f.input :street_2, wrapper_html: { class: 'col s12' } %> 
-
-                          <%= f.input :city, wrapper_html: { class: 'col s6' } %>
-                          <%= f.input :state, wrapper_html: { class: 'col s6' } %>
-                          <%= f.input :zip, wrapper_html: {class: 'col s12'} %> 
-                        </div>
-
                         <div class="col s6">
                           <%= f.input :contact_first_name, wrapper_html: { class: 'col s6' } %>
                           <%= f.input :contact_last_name, wrapper_html: { class: 'col s6' } %>
 
                           <%= f.input :contact_title, wrapper_html: { class: 'col s12' } %>
                           <%= f.input :contact_phone, wrapper_html: { class: 'col s12' } %>
-
+                          <%= f.input :contact_email, wrapper_html: { class: 'col s12'} %>
                         </div>
 
+                        <div class="col s6">
+                          <%= f.input :street_1, wrapper_html: { class: 'col s12'} %>
+                          <%= f.input :street_2, wrapper_html: { class: 'col s12' } %> 
+
+                          <%= f.input :city, wrapper_html: { class: 'col s12' } %>
+                          <%= f.input :state, wrapper_html: { class: 'col s6' } %>
+                          <%= f.input :zip, wrapper_html: {class: 'col s6'} %>                    
                         </div>
-                        <div class="row">
+
+
+                        
+                        <div class = "center">
                             <%= link_to 'Back', clients_path, class: :"btn waves-effect waves-light #ffcdd2 red lighten-4" %>
                               
                             <%= f.submit nil, class: :"btn waves-effect waves-light  teal lighten-4" %>
@@ -37,7 +35,8 @@
             </div>
         </div>
     </div>
-</div>
+  </div>
+
 
 
 

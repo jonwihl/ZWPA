@@ -1,15 +1,9 @@
-
-
-
-
-      <div class = "row"> 
+<div class = "row"> 
   <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Welcome back!<i class="material-icons right">more_vert</i></span>
-      <p><%= link_to 'Manage Users', users_path %></p>
-      <p><%= link_to 'Manage Clients', clients_path %></p>
     </div>
   </div>
         </row>
@@ -39,9 +33,9 @@
                 <% @audits.each do |audit| %>
                 <tr>
                   <td><%= audit.name %></td>
-                  <td><%= audit.end_date %></td>
-                  <td><%= audit.active %></td>
-                  <td><%= audit.client.name %></td>
+                  <td><%= audit.start_date %></td>
+                  <td><%= audit.status %></td>
+                  <td><%= audit.client.proper_name %></td>
                 </tr>
                 <% end %>
               </tbody>
@@ -54,8 +48,6 @@
 
    
     <div class="row center">
-      <a class="btn waves-effect waves-light  teal lighten-4"> Create Event Audit</a>
-      
-      <a class="btn waves-effect waves-light  teal lighten-4"> Create Building AUdit</a>
+ <%= link_to 'New Audit', new_audit_path, class: :"btn waves-effect waves-light teal lighten-4" %>
     </div>
   </div>

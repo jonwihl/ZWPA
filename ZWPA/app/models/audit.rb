@@ -16,4 +16,12 @@ class Audit < ActiveRecord::Base
 	scope :user_audits, ->(user_id) { where('user_id == ?', user_id) }
 	scope :client_audits, ->(client_id) {  where('client_id == ?', client_id) }
   	scope :type, ->(type) { where('audit_type == ?', type) }
+
+  	def status
+      	if end_date.nil?
+      		"In progress"
+      	else
+      		"Finished"
+      	end
+    end
 end
