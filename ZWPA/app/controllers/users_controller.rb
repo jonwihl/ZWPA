@@ -45,13 +45,9 @@ class UsersController < ApplicationController
 
   def archive
     @user.active = false
-    if @user.save
-      flash[:notice] = "Successfully archived #{@user.proper_name}."
-      redirect_to users_url
-    else
-      flash[:notice] = "Could not archive #{@user.proper_name}."
-      redirect_to users_url
-    end
+    @user.save
+    flash[:notice] = "Successfully archived #{@user.proper_name}."
+    redirect_to users_url
   end
 
   private

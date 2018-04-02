@@ -43,13 +43,9 @@ class ClientsController < ApplicationController
 
   def archive
     @client.active = false
-    if @client.save
-      flash[:notice] = "Successfully archived #{@client.proper_name}."
-      redirect_to clients_url
-    else
-      flash[:notice] = "Could not archive #{@client.proper_name}."
-      redirect_to clients_url
-    end
+    @client.save
+    flash[:notice] = "Successfully archived #{@client.proper_name}."
+    redirect_to clients_url
   end
 
   private

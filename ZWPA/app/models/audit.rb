@@ -19,9 +19,9 @@ class Audit < ActiveRecord::Base
 
   	def status
       	if end_date.nil?
-      		"In progress"
+      		"In Progress"
       	else
-      		"Finished"
+      		"Complete"
       	end
     end
 end
