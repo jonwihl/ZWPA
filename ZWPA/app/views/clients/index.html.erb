@@ -1,4 +1,4 @@
-<h5>Listing clients</h3>
+<h5>Active Clients</h3>
 
 <table id = "clientlist" class="display">
   <thead>
@@ -8,19 +8,21 @@
       <th>Contact Phone</th>
       <th>Contact Email</th>
       <th>Address</th>
-      <th></th>
+      <th>Edit</th>
+      <th>Archive</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @clients.each do |client| %>
+    <% @clients.active.each do |client| %>
       <tr>
         <td><%= client.name %></td>
         <td><%= client.proper_name_title %></td>
         <td><%= client.contact_phone %></td>
         <td><%= client.contact_email %></td>
         <td><%= client.proper_address %></td>
-        <td><%= link_to 'Edit', edit_client_path(client), class: :"btn-flat  waves-effect waves-light teal lighten-4" %></td>
+        <td><%= link_to 'edit', edit_client_path(client), class: :"material-icons" %></td>
+        <td><%= link_to 'Archive', archive_client_path(client), class: :"btn-flat waves-effect waves-light #ffcdd2 red lighten-4" %></td>
         
       </tr>
     <% end %>
@@ -28,9 +30,43 @@
 </table>
 
 <br>
+<br>
+<br>
 
+
+<h5>Archived Clients</h5>
+
+<table id = "archiveclintlist" class="display">
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Contact Name</th>
+      <th>Contact Phone</th>
+      <th>Contact Email</th>
+      <th>Address</th>
+      <th>Edit</th>
+      <th>Reactivate</th>
+    </tr>
+  </thead>  
+
+  <tbody>
+    <% @clients.inactive.each do |client| %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= client.proper_name_title %></td>
+        <td><%= client.contact_phone %></td>
+        <td><%= client.contact_email %></td>
+        <td><%= client.proper_address %></td>
+        <td><%= link_to 'edit', edit_client_path(client), class: :"material-icons" %></td>
+        <td><%= link_to 'Reactivate', archive_client_path(client), class: :"btn-flat waves-effect waves-light #ffcdd2 red lighten-4" %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
 <%= link_to 'New Client', new_client_path, class: :"btn-flat  waves-effect waves-light teal lighten-4" %>
-
 
 
 

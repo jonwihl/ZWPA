@@ -29,13 +29,22 @@ $(document).ready(function() {
         { targets: [0, 1, 2, 3, 4], visible: true, },
         { targets: [5, 6], visible: true, "orderable": false }
     ]
-} )
+    } )
+
     $("#clientlist").dataTable( {
     columnDefs: [
         { targets: [0, 1, 2, 3, 4], visible: true, },
         { targets: [5], visible: true, "orderable": false }
     ]
-} )
+    } )
+
+    $("#archiveclientlist").dataTable(
+        columnDefs: [
+            { targets: [0, 1, 2, 3, 4], visible: true, },
+            { targets: [5], visible: true, "orderable": false }
+        ]
+    } )
+
     $("#dashboard").dataTable();
 })
 

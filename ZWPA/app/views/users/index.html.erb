@@ -1,4 +1,4 @@
-<h5>Listing users</h3>
+<h5>Active users</h3>
 
 <table id = "userlist" class="display">
   <thead>
@@ -8,27 +8,62 @@
       <th>Email</th>
       <th>Role</th>
       <th>Active</th>
-      <th></th>
-      <th></th>
+      <th>Edit</th>
+      <th>Archive</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.active.each do |user| %>
       <tr>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= user.role %></td>
         <td><%= user.active %></td>
-        <td><%= link_to 'Show', user, class: :"btn-flat small waves-effect waves-light teal lighten-4" %></td>
-        <td><%= link_to 'Edit', edit_user_path(user), class: :"btn-flat  waves-effect waves-light teal lighten-4" %></td>
-        
+        <td><%= link_to 'edit', edit_user_path(user), class: :"material-icons" %></td>
+        <td><%= link_to 'Archive', archive_user_path(user), class: :"btn-flat  waves-effect waves-light #ffcdd2 red lighten-4" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<br>
+<br>
+
+<h5>Archived users</h3>
+
+<table id = "userlist" class="display">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Active</th>
+      <th>Edit</th>
+      <th>Reactivate</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.inactive.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= user.active %></td>
+        <td><%= link_to 'edit', edit_user_path(user), class: :"material-icons" %></td>
+        <td><%= link_to 'Reactivate', archive_user_path(user), class: :"btn-flat  waves-effect waves-light #ffcdd2 red lighten-4" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
 
 <%= link_to 'New User', new_user_path, class: :"btn-flat  waves-effect waves-light teal lighten-4" %>

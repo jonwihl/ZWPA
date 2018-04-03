@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
 
   	scope :alphabetical, -> { order('last_name, first_name') }
   	scope :active, -> { where(active: true) }
+    scope :inactive, -> { where(active: false) }
   	scope :role, ->(role) { where('role == ?', role) }
+
 
   	# Returns the user's name in the following format: first_name last_name
     def proper_name

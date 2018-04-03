@@ -16,6 +16,7 @@ class Client < ActiveRecord::Base
 
   	scope :alphabetical, -> { order('name') }
   	scope :active, -> { where(active: true) }
+    scope :inactive, -> { where(active: false) }
 
   	# Returns the contact's name in the following format: first_name last_name
     def proper_name
