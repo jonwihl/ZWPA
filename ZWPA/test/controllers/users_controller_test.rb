@@ -64,6 +64,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should archive/deactivate user" do
     assert_difference('User.active.count', -1) { get archive_user_path(@stacy) }
+    assert_redirected_to users_path
+
+    assert_difference('User.active.count', 0) { get archive_user_path(@rob) }
+    assert_redirected_to users_path  
+  end
+
+  test "should reactivate user" do
+    assert_difference('User.inactive.count', -1) { get reactivate_user_path(@rob) }
+    assert_redirected_to users_path
+
+    assert_difference('User.inactive.count', 0) { get reactivate_user_path(@stacy) }
     assert_redirected_to users_path  
   end
 end

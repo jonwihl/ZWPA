@@ -44,8 +44,12 @@ class ClientTest < ActiveSupport::TestCase
 	    end
 
 		should "show that active scope works" do
-	    	assert_equal ["CMU", "Phipps Conservatory"], Client.all.active.map{|u| u.name}.sort
+	    	assert_equal ["CMU"], Client.all.active.map{|u| u.name}.sort
 	    end	 
+
+	    should "show that inactive scope works" do
+	    	assert_equal ["Phipps Conservatory"], Client.all.inactive.map{|u| u.name}.sort
+	    end
 
 	    should "show that proper name method works" do
 	    	assert_equal "Larry Heimann", @cmu.proper_name
