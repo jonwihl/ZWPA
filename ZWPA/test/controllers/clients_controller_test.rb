@@ -64,6 +64,17 @@ class ClientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should archive/deactivate client" do
     assert_difference('Client.active.count', -1) { get archive_client_path(@cmu) }
+    assert_redirected_to clients_path
+
+    assert_difference('Client.active.count', 0) { get archive_client_path(@phipps) }
+    assert_redirected_to clients_path  
+  end
+
+  test "should reactivate client" do
+    assert_difference('Client.inactive.count', -1) { get reactivate_client_path(@phipps) }
+    assert_redirected_to clients_path
+
+    assert_difference('Client.inactive.count', 0) { get reactivate_client_path(@cmu) }
     assert_redirected_to clients_path  
   end
 end

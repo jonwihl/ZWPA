@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:show, :edit, :update, :destroy, :archive]
+  before_action :set_client, only: [:show, :edit, :update, :destroy, :archive, :reactivate]
 
   def index
     @clients = Client.all
@@ -42,10 +42,27 @@ class ClientsController < ApplicationController
   end
 
   def archive
-    @client.active = false
-    @client.save
-    flash[:notice] = "Successfully archived #{@client.proper_name}."
-    redirect_to clients_url
+    if @client.active
+      @client.active = false
+      @client.save
+      flash[:notice] = "Successfully archived #{@client.proper_name}."
+      redirect_to clients_url
+    else
+      flash[:notice] = "#{@client.proper_name} is already archived."
+      redirect_to clients_url  
+    end
+  end
+
+  def reactivate
+    unless @client.active
+      @client.active = true
+      @client.save
+      flash[:notice] = "Successfully reactivated #{@client.proper_name}."
+      redirect_to clients_url
+    else
+      flash[:notice] = "#{@client.proper_name} is already active."
+      redirect_to clients_url  
+    end
   end
 
   private

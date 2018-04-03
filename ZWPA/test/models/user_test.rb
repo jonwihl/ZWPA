@@ -92,6 +92,10 @@ class UserTest < ActiveSupport::TestCase
 	    	assert_equal ["Albin", "Bradley"], User.all.active.map{ |u| u.last_name}.sort
 	    end
 
+	    should "show that inactive scope works" do
+	    	assert_equal ["Rob"], User.all.inactive.map{ |u| u.last_name}.sort
+	    end
+
 	    should "show that role scope works" do
 	    	assert_equal ["Albin", "Bradley", "Rob"], User.all.role("administrator").map{ |u| u.last_name}.sort
 	    end
