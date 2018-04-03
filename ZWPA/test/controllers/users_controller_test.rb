@@ -24,7 +24,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('User.count', 1) do
       post users_url, params: { user: { active: true, email: "al@prc.com", first_name: "alan", last_name: "bar", password: "secrets1", password_confirmation: "secrets1", role: "administrator" } }
     end
-    assert_redirected_to user_url(assigns(:user))
+    assert_redirected_to clients_url
   end
 
   test "should not create a new user with invalid params" do

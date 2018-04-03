@@ -24,7 +24,7 @@ class ClientsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Client.count', 1) do
       post clients_url, params: { client: { name: "pnc", street_1: "123", street_2: "234", city: "Pittsburgh", state: "PA", zip: "11111", contact_phone: "1234566789", contact_email: "pnc@pnc.com", contact_title: "manager", contact_first_name: "bob", contact_last_name: "rob", active: true } }
     end
-    assert_redirected_to client_url(assigns(:client))
+    assert_redirected_to clients_url
   end
 
   test "should not create a new client with invalid params" do
