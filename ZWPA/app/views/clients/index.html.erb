@@ -22,7 +22,7 @@
         <td><%= client.contact_email %></td>
         <td><%= client.proper_address %></td>
         <td><%= link_to 'edit', edit_client_path(client), class: :"material-icons" %></td>
-        <td><%= link_to 'Archive', archive_client_path(client), class: :"btn-flat waves-effect waves-light #ffcdd2 red lighten-4" %></td>
+        <td><%= link_to 'Archive', archive_client_path(client), class: :"btn waves-effect waves-light #ffcdd2 red lighten-4" %></td>
         
       </tr>
     <% end %>
@@ -58,7 +58,7 @@
         <td><%= client.contact_email %></td>
         <td><%= client.proper_address %></td>
         <td><%= link_to 'edit', edit_client_path(client), class: :"material-icons" %></td>
-        <td><%= link_to 'Reactivate', archive_client_path(client), class: :"btn-flat waves-effect waves-light #ffcdd2 red lighten-4" %></td>
+        <td><%= link_to 'Reactivate', reactivate_client_path(client), class: :"btn waves-effect waves-light  #ffcdd2 red lighten-4" %></td>
         
       </tr>
     <% end %>
@@ -66,8 +66,7 @@
 </table>
 
 <br>
-<%= link_to 'New Client', new_client_path, class: :"btn-flat  waves-effect waves-light teal lighten-4" %>
-
+<%= link_to 'New Client', new_client_path, class: :"btn waves-effect waves-light" %>
 
 
 

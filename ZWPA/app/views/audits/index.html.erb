@@ -33,7 +33,11 @@
                   <td><%= audit.name %></td>
                   <td><%= audit.start_date %></td>
                   <td><%= audit.status %></td>
-                  <td><%= audit.client.proper_name %></td>
+                  <td>
+                    <% if audit.client != nil %>
+                      <%= audit.client.proper_name %>
+                    <% end %>
+                  </td>
                 </tr>
                 <% end %>
               </tbody>
@@ -46,6 +50,6 @@
 
    
     <div class="row center">
- <%= link_to 'New Audit', new_audit_path, class: :"btn waves-effect waves-light teal lighten-4" %>
+ <%= link_to 'New Audit', new_audit_path, class: :"btn waves-effect waves-light" %>
     </div>
   </div>
