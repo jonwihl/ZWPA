@@ -1,5 +1,4 @@
 
-
   main {
     flex: 1 0 auto;
   }
@@ -51,6 +50,18 @@ html {
   background-color: #FCC;
   border: solid 1px #C66;
   color: #800000;
+}
+ .dataTables_length {
+        display: none;
+    }
+
+.dataTables_wrapper .dataTables_length {
+  float: left;
+}
+
+.dataTables_wrapper .dataTables_filter {
+  float: right;
+  text-align: right;
 }
 
 /********** FOOTER ********/
@@ -322,4 +333,10 @@ a.active {
   color: red;
 }
 
+h6 { 
+    font-weight: bold;
+}
 
+.tabs .indicator {
+  background-color: #1F6E56;
+}

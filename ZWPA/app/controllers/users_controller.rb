@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user.active = true
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user, notice: "The user has been added to the system"
+      redirect_to clients_url, notice: "The user has been added to the system"
     else
       flash[:error] = "This user could not be created."
       render "new"

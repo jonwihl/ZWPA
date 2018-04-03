@@ -24,7 +24,7 @@ class Client < ActiveRecord::Base
     end
 
     def proper_name_title 
-    	if contact_title.nil?
+    	if contact_title.blank?
     		proper_name
     	else
     		contact_first_name + " " + contact_last_name + " " + "(" + contact_title + ")"
@@ -32,7 +32,7 @@ class Client < ActiveRecord::Base
     end
 
     def proper_address
-    	if street_2.nil?
+    	if street_2.blank?
     		street_1 + "\n" + city + ", " + state + " " + zip
     	else
     		street_1 + "\n" + street_2 + "\n" + city + ", " + state + " " + zip
