@@ -19,7 +19,7 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     @client.active = true
     if @client.save
-      redirect_to @client, notice: "The client has been added to the system"
+      redirect_to clients_url, notice: "The client has been added to the system"
     else
       flash[:error] = "This client could not be created."
       render "new"

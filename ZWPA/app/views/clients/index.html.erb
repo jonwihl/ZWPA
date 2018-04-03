@@ -1,5 +1,11 @@
-<h5>Active Clients</h3>
-
+ <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6"><a href="#c1" class="teal-text text-darken-2">Active Clients</a></li>
+        <li class="tab col s6"><a href="#c2" class="teal-text text-darken-2">Archived Clients</a></li>
+      </ul>
+    </div>
+    <div id="c1" class="col s12">
 <table id = "clientlist" class="display">
   <thead>
     <tr>
@@ -28,13 +34,9 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
-<br>
-<br>
-<br>
-
-
-<h5>Archived Clients</h5>
+<div id="c2" class="col s12">
 
 <table id = "archiveclintlist" class="display">
   <thead>
@@ -44,7 +46,6 @@
       <th>Contact Phone</th>
       <th>Contact Email</th>
       <th>Address</th>
-      <th>Edit</th>
       <th>Reactivate</th>
     </tr>
   </thead>  
@@ -57,13 +58,13 @@
         <td><%= client.contact_phone %></td>
         <td><%= client.contact_email %></td>
         <td><%= client.proper_address %></td>
-        <td><%= link_to material_icon.edit, edit_client_path(client), :style => "color:#ff9800;" %></td>
         <td><%= link_to material_icon.unarchive, reactivate_client_path(client), :style => "color:#ACD1CF;" %></td>
         
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 <%= link_to 'New Client', new_client_path, class: :"btn waves-effect waves-light" %>

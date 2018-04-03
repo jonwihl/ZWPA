@@ -10,7 +10,7 @@
             <%= f.input :client_id, collection: Client.active.to_a, wrapper_html: { class: 'col s4' } %>
                    
             <div class = "right">
-                <%= link_to 'Back', audits_path, class: :"btn waves-effect waves-light #ffcdd2 red lighten-3" %>
+                <%= link_to 'Back', audits_path, class: :"btn waves-effect waves-light" %>
                   
                 <%= f.submit nil, class: :"btn waves-effect waves-light" %>
             </div>

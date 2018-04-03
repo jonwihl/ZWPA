@@ -17,7 +17,7 @@
         <h5> Manage Audits </h5>
     </div> 
     <% unless @audits.nil? %>
-        <table class="striped centered" id = "dashboard">
+        <table id = "dashboard">
             <thead>
                 <tr>
                     <th>Audit Name</th>
@@ -30,8 +30,9 @@
             <tbody>
                 <% @audits.each do |audit| %>
                 <tr>
-                  <td><%= audit.name %></td>
-                  <td><%= audit.start_date %></td>
+                  <td><%= link_to audit.name, audit_path(audit) %></td>
+                
+                  <td><%= audit.start_date.strftime("%B %d, %Y") %></td>
                   <td><%= audit.status %></td>
                   <td>
                     <% if audit.client != nil %>
