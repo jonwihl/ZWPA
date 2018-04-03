@@ -77,4 +77,5 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('User.inactive.count', 0) { get reactivate_user_path(@stacy) }
     assert_redirected_to users_path  
   end
+
 end

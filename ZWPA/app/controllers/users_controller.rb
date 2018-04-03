@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     unless @user.active
       @user.active = true
       @user.save
-      flash[:notice] = "Successfully reactived #{@user.proper_name}."
+      flash[:notice] = "Successfully reactivated #{@user.proper_name}."
       redirect_to users_url
     else
       flash[:notice] = "#{@user.proper_name} is already active."
