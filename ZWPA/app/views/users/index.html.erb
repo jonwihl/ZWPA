@@ -1,70 +1,70 @@
-
-
- <div class="row">
+<div class="row">
     <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s6"><a href="#users1" class="teal-text text-darken-2">Active</a></li>
-        <li class="tab col s6"><a href="#users2" class="teal-text text-darken-2">Archived</a></li>
-      </ul>
+        <ul class="tabs">
+            <li class="tab col s6"><a href="#users1" class="teal-text text-darken-2">Active</a></li>
+            <li class="tab col s6"><a href="#users2" class="teal-text text-darken-2">Archived</a></li>
+        </ul>
     </div>
+</div>
+<br>
+
+<div class="row">
     <div id="users1" class="col s12">
+        <table id = "userlist" class="display">
+          <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th style="text-align:center">Edit</th>
+                <th style="text-align:center">Archive</th>
+            </tr>
+          </thead>
 
-<table id = "userlist" class="display">
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Edit</th>
-      <th>Archive</th>
-    </tr>
-  </thead>
+          <tbody>
+            <% @users.active.each do |user| %>
+              <tr>
+                <td><%= user.first_name %></td>
+                <td><%= user.last_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.role %></td>
+                <td style="text-align:center"><%= link_to material_icon.edit, edit_user_path(user), :style => "color:#ff9800;" %></td>
+                <td style="text-align:center"><%= link_to material_icon.archive, archive_user_path(user), :style => "color:#ef5350;" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
 
-  <tbody>
-    <% @users.active.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.role %></td>
-        <td><%= link_to material_icon.edit, edit_user_path(user), :style => "color:#ff9800;" %></td>
-        <td><%= link_to material_icon.archive, archive_user_path(user), :style => "color:#ef5350;" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div id="users2" class="col s12">
+        <table id = "userlist2" class="display">
+          <thead>
+            <tr>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th style="text-align:center">Reactivate</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @users.inactive.each do |user| %>
+              <tr>
+                <td><%= user.first_name %></td>
+                <td><%= user.last_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.role %></td>
+                <td style="text-align:center"><%= link_to material_icon.unarchive, reactivate_user_path(user), :style => "color:#ACD1CF;" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
 </div>
-<div id="users2" class="col s12">
+<br>
 
-<table id = "userlist2" class="display">
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Role</th>
-      <th>Reactivate</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.inactive.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.role %></td>
-        <td><%= link_to material_icon.unarchive, reactivate_user_path(user), :style => "color:#ACD1CF;" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="row">
+<%= link_to 'New User', new_user_path, class: :"btn  waves-effect waves-light right" %>
 </div>
-
-</div>
-
-
-
-<%= link_to 'New User', new_user_path, class: :"btn  waves-effect waves-light" %>
