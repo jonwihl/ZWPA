@@ -25,7 +25,7 @@
   <%= @audit.id %>
 </p>
 
-<%= link_to 'New questionnaire', new_questionnaire_path(audit: @audit.id), class: :"btn-flat  waves-effect waves-light teal lighten-4" %>
+<%= link_to 'New questionnaire', new_questionnaire_path(audit: @audit.id), class: :"btn-flat  waves-effect waves-light" %>
 
 <%= link_to 'Edit', edit_audit_path(@audit) %> |
 <%= link_to 'Back', audits_path %>
