@@ -21,8 +21,8 @@
         <td><%= user.email %></td>
         <td><%= user.role %></td>
         <td><%= user.active %></td>
-        <td><%= link_to 'edit', edit_user_path(user), class: :"material-icons" %></td>
-        <td><%= link_to 'Archive', archive_user_path(user), class: :"btn waves-effect waves-light #ffcdd2 red lighten-4" %></td>
+        <td><%= link_to material_icon.edit, edit_user_path(user), :style => "color:#ff9800;" %></td>
+        <td><%= link_to material_icon.archive, archive_user_path(user), :style => "color:#ef5350;" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -55,8 +55,8 @@
         <td><%= user.email %></td>
         <td><%= user.role %></td>
         <td><%= user.active %></td>
-        <td><%= link_to 'edit', edit_user_path(user), class: :"material-icons" %></td>
-        <td><%= link_to 'Reactivate', reactivate_user_path(user), class: :"btn  waves-effect waves-light #ffcdd2 red lighten-4" %></td>
+        <td><%= link_to material_icon.edit, edit_user_path(user), :style => "color:#ff9800;" %></td>
+        <td><%= link_to material_icon.unarchive, reactivate_user_path(user), :style => "color:#ACD1CF;" %></td>
       </tr>
     <% end %>
   </tbody>

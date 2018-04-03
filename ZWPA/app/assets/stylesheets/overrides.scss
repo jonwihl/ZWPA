@@ -14,6 +14,10 @@ html {
 }
 
 /********** TOPBAR & NAV ********/
+.topbar {
+  background-color: #248F47;  
+}
+
 #topbar {
   background-color: #66bb6a;
   padding-top: 5px;
@@ -22,7 +26,7 @@ html {
 }
 
 #nav {
-  background-color: #66bb6a;
+  background-color: #248F47;
   height: 50px;
 }
 
@@ -51,8 +55,12 @@ html {
 
 /********** FOOTER ********/
 
+.page-footer {
+  background-color: #248F47;  
+}
+
 #footer {
-  background-color: #FFFDFE;
+  background-color: #248F47;
   margin: 0;
   padding: 5% 10% 2% 10%;
   color: black;
@@ -94,7 +102,7 @@ th.align_center {
 
 /********** BUTTONS ********/
 .btn {
-  background-color: #90a4ae;
+  background-color: #ACD1CF;
   color: #000;
 }
 

@@ -5,22 +5,22 @@
                   <li><a href="#!">three</a></li>
 </ul>
 -->
-<nav class="#1b5e20 green darken-4" role="navigation">
-            <div class="nav-wrapper container"> 
-              <ul class="left hide-on-med-and-down">
-                <li>
-
-                    <a id="logo-container" href="#" class="brand-logo">
-                        <%= link_to(image_tag('big logo.png'), audits_url) %>
-                    </a>
-                </li>
-              </ul>
-              <ul class="right hide-on-med-and-down"></li>
-                <li><%= link_to 'Manage Users', users_path %></li>
-                <li><%= link_to 'Manage Clients', clients_path %></li>
-                <li><a href="#">Log out</a></li>
-              </ul>
-            </div>
-        </nav>
+<nav class="topbar" role="navigation">
+    <div class="nav-wrapper container"> 
+        <ul class="left hide-on-med-and-down">
+            <li>
+                <a id="logo-container" href="#" class="brand-logo">
+                    <%= link_to(image_tag('big logo.png'), audits_url) %>
+                </a>
+            </li>
+        </ul>
+        
+        <ul class="right hide-on-med-and-down">
+            <li><%= link_to 'Manage Users', users_path %></li>
+            <li><%= link_to 'Manage Clients', clients_path %></li>
+            <li><a href="#">Log out</a></li>
+        </ul>
+    </div>
+</nav>
 
         
