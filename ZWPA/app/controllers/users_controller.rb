@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :archive]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :archive, :reactivate]
   # authorize_resource - TODO
 
   def index
@@ -44,10 +44,27 @@ class UsersController < ApplicationController
   end
 
   def archive
-    @user.active = false
-    @user.save
-    flash[:notice] = "Successfully archived #{@user.proper_name}."
-    redirect_to users_url
+    if @user.active
+      @user.active = false
+      @user.save
+      flash[:notice] = "Successfully archived #{@user.proper_name}."
+      redirect_to users_url
+    else
+      flash[:notice] = "#{@user.proper_name} is already archived."
+      redirect_to users_url
+    end
+  end
+
+  def reactivate
+    if @user.active == false
+      @user.active = true
+      @user.save
+      flash[:notice] = "Successfully reactivated #{@user.proper_name}."
+      redirect_to users_url
+    else
+      flash[:notice] = "#{@user.proper_name} is already active."
+      redirect_to users_url
+    end
   end
 
   private
