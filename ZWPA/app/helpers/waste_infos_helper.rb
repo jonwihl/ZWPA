@@ -1,0 +1,2 @@
+module WasteInfosHelper
+end

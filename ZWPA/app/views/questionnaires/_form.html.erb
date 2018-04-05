@@ -1,0 +1,110 @@
+<div class="row valign-wrapper">
+    <div class="col s12 valign">
+        <div class="card white">
+            <div class="card-content">
+                <%= simple_form_for @questionnaire do |f| %>  
+                      <span class="card-title center-align"> <b> LEED EBOM </b> <br> Multi-Tenant <br> Site Visit Questionnaire </span>
+                      <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
+
+                        <%= render :partial => "partials/error", locals: {f: f} %><br>
+
+                        <%= f.input :square_footage %>
+                        <%= f.input :max_occupancy %>
+                        <%= f.input :num_floors %>
+                        <%= f.input :management_structure%>
+                        <br>
+                        <%= f.input :waste_disposal_system, label: "What is the structure of he solid waste/recycling disposal system",collection: Questionnaire::WASTE_DISPOSAL_OPTIONS,  as: :select %>
+                        <%= f.input :solid_waste_system, label: "Who controls the solid waste system?", collection: Questionnaire::SOLID_WASTE_SYSTEM_OPTIONS,  as: :select %>
+                        <%= f.input :waste_management_costs, label: "Are waste management costs included leases?", collection: Questionnaire::OPTIONS,  as: :select %>
+                        <br>
+
+                       <div class="divider"></div>
+                       <div class="section">
+                          <h6>Does your building have a: </h6>
+                          <%= f.input :loading_dock, collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
+                          <%= f.input :freight_elevators, collection: Questionnaire::OPTIONS,  as: :select, wrapper_html: { class: 'col s12' } %>
+                          <%= f.input :location_info, label: "Please provide location(s) or more information below:", wrapper_html: { class: 'col s12' }%>
+                        </div>
+                        <br>
+
+                        <div class="divider"></div>
+                        <div class="section"><br>
+                          <h6>Trash Hauling:</h6>
+                          <%= f.input :trash_hauler, label: "Current trash hauler:" %>
+                          <%= f.input :trash_hauler_contract, label: "Do you have a contract with them?", collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
+                          <%= f.input :trash_hauler_copy, label: "If yes, is a copy available?", collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
+                        </div>
+
+                        <div class="divider"></div>
+                        <div class="section">
+                          <%= f.input :record_of_waste_vol, label: "Do you have at least one year's records of solid waste and/or recycling volumes?" ,collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
+                          <%= f.input :solid_waste_storage, label: "Where is solid waste currently stored?" %>
+                          <%= f.input :solid_waste_containers, label: "What solid waste containers do you use?" %>                          <%= f.input :solid_waste_info, label: "Please provide more information below:" %>
+                        </div>
+
+
+                        <%= f.input :recycling_mandated, label: "Is your building located in a recycling mandated community?" ,collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
+                        <%= f.input :recycling_program, label: "Does your building currently have a recycling program?" ,collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
+                          <%= f.input :recycling_program_stream, label: "Does your building currently utilize a dual-stream or single-stream recyucling program in your building?" ,collection: Questionnaire::RECYCLING_PROGRAM_STREAM_OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
+                        <%= f.input :recycling_program_info, label: "Please provide more information below:" %>
+                        
+                        <%= f.input :buy_recycling_policy, label: "Does your company have a buy recycled policy or recycled content of products" ,collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' } %> 
+                        <%= f.input :buy_recycling_policy_info, label: "If yes, please describe below" %>
+                        
+                        <%= f.input :discontinued_recycling_info, label: "If your company was recycling, and discontinued the effort, please explain why" %>
+                        
+                        <%= f.input :compost_waste_current, label: "Does your company currently compost organic materials such as food waste/yard waste?", collection: Questionnaire::OPTIONS %>
+                        <%= f.input :compost_waste_past, label: "Has your organization composted material in the past", collection: Questionnaire::OPTIONS %>
+                        <%= f.input :compost_program_info, label: "Please provide more information about your company's current/past compost program below." %>
+
+                        <div class="divider"></div>
+                        <div class="section">
+                          <h6> E-Wastes </h6>
+                          <ol><%= f.input :toner, collection: Questionnaire::OPTIONS %></ol>
+                          <ol><%= f.input :cfls, collection: Questionnaire::OPTIONS %></ol>
+                          <ol><%= f.input :batteries, collection: Questionnaire::OPTIONS %></ol>
+                          <ol><%= f.input :peripherals, collection: Questionnaire::OPTIONS %></ol>
+                          <ol><%= f.input :cell_phones, collection: Questionnaire::OPTIONS %></ol>
+                          <ol><%= f.input :tvs, collection: Questionnaire::OPTIONS %></ol>
+                          <ol><%= f.input :corded_equipment, collection: Questionnaire::OPTIONS %></ol>
+                        </div>
+
+                        <div class="divider"></div>
+                        <div class="section">
+                          <h6> Other Materials </h6>
+                          <ol><%= f.input :furniture, collection: Questionnaire::OPTIONS %></ol>
+                          <ol><%= f.input :linens, collection: Questionnaire::OPTIONS %></ol>
+                          <ol><%= f.input :construction_debris, collection: Questionnaire::OPTIONS %></ol>
+                          <ol><%= f.input :pallets, collection: Questionnaire::OPTIONS %></ol>
+                        </div>
+
+                        <div class="divider"></div>
+                        <div class="section">
+                          <%= f.input :zero_waste_policy, label: "Does your company currently have a Zero Waste Policy in place or interest in creating one? This would require 90% of overall diversion of landfill for non-hazard wastes discarded materials are reused, recycled, composted, or recovered for productive use in nature or the economy at the biological temperatures", collection: Questionnaire::OPTIONS %>
+                          <%= f.input :leed_certified, label: "Is you building/organization LEED certified?", collection: Questionnaire::OPTIONS %>
+                          <%= f.input :recertify_leed, label: "If so, is your building/organization looking to recertify your LEED building?", collection: Questionnaire::OPTIONS %> 
+                          <%= f.input :true_zero_waste_audit, label: "Do you want a true waste audit?", collection: Questionnaire::OPTIONS %> 
+                          <%= f.input :prc_waste_audit, label: "Do you want a PRC waste audit?", collection: Questionnaire::OPTIONS %> 
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="row">
+                          <%= f.submit "Submit", class: :"btn waves-effect waves-light right" %>
+                          <% unless @audit.nil? %>
+                            <%= link_to 'Cancel', audit_path(@audit.id), class: :"btn waves-effect waves-light #ffcdd2 red lighten-3 right" %>
+                          <% end %>
+                        </div>
+                  <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
