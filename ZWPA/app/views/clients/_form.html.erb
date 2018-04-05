@@ -2,10 +2,8 @@
     <div class="left-align">
         <div class="row">
             <%= simple_form_for @client do |f| %>
-                <br>
-
-                <%= render :partial => "partials/error", locals: {f: f} %>
-                <br>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
+                <%= render :partial => "partials/error", locals: {f: f} %><br>
 
                 <%= f.input :name, wrapper_html: { class: 'col s12'} %>
                 <%= f.input :contact_title, wrapper_html: { class: 'col s12' } %>
@@ -24,14 +22,12 @@
                     <div class="btn waves-effect waves-light col s3 right"> 
                         <%= f.submit "Submit" %>
                     </div>
-                    
                     <div class="col s1 right"></div>
-                
                     <%= link_to 'Back', clients_path, class: 'btn waves-effect waves-light col s3 right' %>
-                    </div>
                 </div>
-            <% end %>  
-        </div>
+
+            </div>
+        <% end %>  
     </div>
 </div>
 

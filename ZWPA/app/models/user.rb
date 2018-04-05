@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
   	# Returns the user's name in the following format: first_name last_name
     def proper_name
-      first_name + " " + last_name
+        first_name + " " + last_name
     end
 
 end

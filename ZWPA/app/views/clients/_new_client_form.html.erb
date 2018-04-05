@@ -1,21 +1,21 @@
 <%= simple_form_for @client do |f| %>
     <span class="card-title">New Client</span>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
+    
+    <%= render :partial => "partials/error", locals: {f: f} %><br>
 
-        <%= render :partial => "partials/error", locals: {f: f} %><br>
+    <%= f.input :name, wrapper_html: { class: 'col s12'} %>
+    <%= f.input :contact_title, wrapper_html: { class: 'col s12' } %>
+    <%= f.input :contact_first_name, wrapper_html: { class: 'col s6' } %>
+    <%= f.input :contact_last_name, wrapper_html: { class: 'col s6' } %>
+    <%= f.input :contact_email, wrapper_html: { class: 'col s6' } %>
+    <%= f.input :contact_phone, wrapper_html: { class: 'col s6' } %>
 
-        <%= f.input :name, wrapper_html: { class: 'col s12'} %>
-        <%= f.input :contact_title, wrapper_html: { class: 'col s12' } %>
-        <%= f.input :contact_first_name, wrapper_html: { class: 'col s6' } %>
-        <%= f.input :contact_last_name, wrapper_html: { class: 'col s6' } %>
-        <%= f.input :contact_email, wrapper_html: { class: 'col s6' } %>
-        <%= f.input :contact_phone, wrapper_html: { class: 'col s6' } %>
-
-        <%= f.input :street_1, wrapper_html: { class: 'col s6'} %>
-        <%= f.input :street_2, wrapper_html: { class: 'col s6' } %> 
-        <%= f.input :city, wrapper_html: { class: 'col s4' } %>
-        <%= f.input :state, wrapper_html: { class: 'col s4' } %>
-        <%= f.input :zip, wrapper_html: {class: 'col s4'} %>   
+    <%= f.input :street_1, wrapper_html: { class: 'col s6'} %>
+    <%= f.input :street_2, wrapper_html: { class: 'col s6' } %> 
+    <%= f.input :city, wrapper_html: { class: 'col s4' } %>
+    <%= f.input :state, wrapper_html: { class: 'col s4' } %>
+    <%= f.input :zip, wrapper_html: {class: 'col s4'} %>   
     
     <div class = "row">      
         <%= f.submit "Submit", class: :"btn waves-effect waves-light right" %>
