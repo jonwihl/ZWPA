@@ -1,0 +1,52 @@
+<div class = "row"> 
+    <div class="card">
+        <div class="card-image waves-effect waves-block waves-light"></div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Welcome back!<i class="material-icons right">more_vert</i></span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="center-align">       
+        <hr>
+        <div class="row">  
+            <div class ="center-align">
+                <h5> Manage Audits </h5>
+            </div> 
+            <% unless @audits.nil? %>
+                <table id = "dashboard">
+                    <thead>
+                        <tr>
+                            <th>Audit Name</th>
+                            <th>Start Date</th>
+                            <th>Status</th>
+                            <th>Client</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% @audits.each do |audit| %>
+                        <tr>
+                            <td><%= link_to audit.name, audit_path(audit) %></td>
+                        
+                            <td><%= audit.start_date.strftime("%B %d, %Y") %></td>
+                            <td><%= audit.status %></td>
+                            <td>
+                                <% if audit.client != nil %>
+                                    <%= audit.client.proper_name %>
+                                <% end %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <% end %>
+        </div>
+    </div>
+</div>
+    
+
+<div class="row">
+    <%= link_to 'New Audit', new_audit_path, class: :"btn waves-effect waves-light right" %>
+</div>
