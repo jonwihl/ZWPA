@@ -4,6 +4,9 @@
             <div class="card-content">
                 <%= simple_form_for @questionnaire do |f| %>  
                       <span class="card-title center-align"> <b> LEED EBOM </b> <br> Multi-Tenant <br> Site Visit Questionnaire </span>
+                      <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
+
+                        <%= render :partial => "partials/error", locals: {f: f} %><br>
 
                         <%= f.input :square_footage %>
                         <%= f.input :max_occupancy %>
@@ -31,12 +34,15 @@
                           <%= f.input :trash_hauler_contract, label: "Do you have a contract with them?", collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
                           <%= f.input :trash_hauler_copy, label: "If yes, is a copy available?", collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
                         </div>
+
                         <div class="divider"></div>
                         <div class="section">
                           <%= f.input :record_of_waste_vol, label: "Do you have at least one year's records of solid waste and/or recycling volumes?" ,collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
                           <%= f.input :solid_waste_storage, label: "Where is solid waste currently stored?" %>
                           <%= f.input :solid_waste_containers, label: "What solid waste containers do you use?" %>                          <%= f.input :solid_waste_info, label: "Please provide more information below:" %>
                         </div>
+
+
                         <%= f.input :recycling_mandated, label: "Is your building located in a recycling mandated community?" ,collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
                         <%= f.input :recycling_program, label: "Does your building currently have a recycling program?" ,collection: Questionnaire::OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
                           <%= f.input :recycling_program_stream, label: "Does your building currently utilize a dual-stream or single-stream recyucling program in your building?" ,collection: Questionnaire::RECYCLING_PROGRAM_STREAM_OPTIONS,  as: :select , wrapper_html: { class: 'col s12' }%>
@@ -83,16 +89,14 @@
 
                         <br>
                         <br>
-                          <div class="row">
+
+                        <div class="row">
                           <%= f.submit "Submit", class: :"btn waves-effect waves-light right" %>
                           <% unless @audit.nil? %>
                             <%= link_to 'Cancel', audit_path(@audit.id), class: :"btn waves-effect waves-light #ffcdd2 red lighten-3 right" %>
                           <% end %>
-                          </div>
+                        </div>
                   <% end %>
-
-            
-
             </div>
         </div>
     </div>
