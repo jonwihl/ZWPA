@@ -1,18 +1,19 @@
  <%= simple_form_for @audit do |f| %>
-    <span class="card-title"><%= controller.action_name.capitalize %> Audit</span>
-        
-        <div class="row">
-            <%= f.input :name, wrapper_html: { class: 'col s4' } %>
-            <%= f.input :audit_type, collection: ["Building", "Event"], wrapper_html: { class: 'col s4' } %>
+    <span class="card-title"><%= controller.action_name.capitalize %> Audit</span>    
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
 
-             <%= f.input :user_id, as: :hidden, input_html: { value: params[:user_id]} %>
-            
-            <%= f.input :client_id, collection: Client.active.to_a, wrapper_html: { class: 'col s4' } %>
-                   
-            <div class = "right">
-                <%= link_to 'Back', audits_path, class: :"btn waves-effect waves-light" %>
-                  
-                <%= f.submit nil, class: :"btn waves-effect waves-light" %>
-            </div>
+        <%= render :partial => "partials/error", locals: {f: f} %><br>
+        
+    <div class="row">
+
+        <%= f.input :name, wrapper_html: { class: 'col s4' } %>
+        <%= f.input :audit_type, collection: ["Building", "Event"], wrapper_html: { class: 'col s4' } %>
+        <%= f.input :user_id, as: :hidden, input_html: { value: params[:user_id]} %>
+        <%= f.input :client_id, collection: Client.active.to_a, wrapper_html: { class: 'col s4' } %>
+               
+        <div class = "right">
+            <%= link_to 'Back', audits_path, class: :"btn waves-effect waves-light" %> 
+            <%= f.submit nil, class: :"btn waves-effect waves-light" %>
         </div>
-    <% end %>   
+    </div>
+<% end %>   
