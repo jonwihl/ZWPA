@@ -1,5 +1,5 @@
 class AreasController < ApplicationController
-    before_action :set_area, only: [:show, :edit, :update, :destroy]
+    before_action :set_area, only: [:show, :edit, :update, :destroy, :complete]
 
     # GET /areas
     # GET /areas.json
@@ -26,6 +26,7 @@ class AreasController < ApplicationController
     def create
         @area = Area.new(area_params)
         @area.active = true
+        @area.status = "in progress"
         if @area.save
             redirect_to areas_url, notice: "#{@area.name} has been added to the system"
         else
@@ -53,6 +54,13 @@ class AreasController < ApplicationController
         redirect_to areas_url
     end
 
+    def complete
+        @area.status = "complete"
+        @area.end_date = Date.current
+        @area.save
+        redirect_to areas_url
+    end
+
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_area
@@ -61,6 +69,6 @@ class AreasController < ApplicationController
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def area_params
-          params.require(:area).permit(:name, :active, :audit_id)
+          params.require(:area).permit(:name, :active, :start_date, :end_date, :status, :audit_id)
       end
 end

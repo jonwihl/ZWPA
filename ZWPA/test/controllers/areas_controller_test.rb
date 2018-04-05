@@ -22,13 +22,13 @@ class AreasControllerTest < ActionDispatch::IntegrationTest
 
     test "should create a new area" do
         assert_difference('Area.count', 1) do
-            post areas_url, params: { area: { name: @cob.name, active: @cob.active } }
+            post areas_url, params: { area: { name: @cob.name, start_date: @cob.start_date, active: @cob.active } }
         end
         assert_redirected_to areas_url
       end
 
     test "should not create a new areas with invalid params" do
-        post areas_url, params: { area: { name: nil, active: @cob.active } }
+        post areas_url, params: { area: { name: nil, start_date: @cob.start_date, active: @cob.active } }
         assert_template :new
     end
 
@@ -46,13 +46,13 @@ class AreasControllerTest < ActionDispatch::IntegrationTest
     end
 
     test "should update a area" do
-        patch area_url(@cob), params: { area: { name: @cob.name, active: @cob.active } }
+        patch area_url(@cob), params: { area: { name: @cob.name, start_date: @cob.start_date, active: @cob.active } }
         assert_redirected_to area_url(@cob)
         assert_equal "County Office Building has been updated.", flash[:notice]    
     end
 
     test "should fail to update area with invalid params" do
-        patch area_url(@cob), params: { area: { name: nil, active: @cob.active } }
+        patch area_url(@cob), params: { area: { name: nil, start_date: @cob.start_date, active: @cob.active } }
         assert_template :edit
     end
 
@@ -60,4 +60,10 @@ class AreasControllerTest < ActionDispatch::IntegrationTest
         assert_difference('Area.count', -1) { delete area_path(@cob) }
         assert_redirected_to areas_path
     end
+
+    test "should set area status to complete and set end date" do
+        assert_difference('Area.in_progress.count', -1) { get complete_area_path(@porter) }
+        assert_redirected_to areas_path
+    end
+
 end

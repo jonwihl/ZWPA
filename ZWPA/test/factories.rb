@@ -13,6 +13,9 @@ FactoryBot.define do
 
   	factory :area do
     	name "County Office Building"
+    	start_date Date.current
+    	end_date Date.current + 2
+    	status "complete"
     	active true
     	audit nil
   	end
@@ -53,6 +56,7 @@ FactoryBot.define do
 		audit_type "Building"
 		start_date "2018-02-18 22:35:42"
 		end_date nil
+		notes nil
 		active true
 		user nil
 		client nil
