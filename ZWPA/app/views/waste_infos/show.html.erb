@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @waste_info.category %>
+</p>
+
+<p>
+  <strong>True category:</strong>
+  <%= @waste_info.true_category %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @waste_info.weight %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @waste_info.notes %>
+</p>
+
+<p>
+  <strong>Anomaly:</strong>
+  <%= @waste_info.anomaly %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @waste_info.timestamp %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @waste_info.active %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @waste_info.area %>
+</p>
+
+<p>
+  <strong>Material type:</strong>
+  <%= @waste_info.material_type %>
+</p>
+
+<%= link_to 'Edit', edit_waste_info_path(@waste_info) %> |
+<%= link_to 'Back', waste_infos_path %>

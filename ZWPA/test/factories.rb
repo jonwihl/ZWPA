@@ -1,4 +1,31 @@
 FactoryBot.define do
+  	factory :waste_info do
+    	category "landfill"
+    	true_category "landfill"
+    	weight 1.5
+    	notes nil
+    	anomaly false
+    	timestamp "2018-04-04 21:06:51"
+    	active true
+    	area nil
+    	material_type nil
+  	end
+
+  	factory :area do
+    	name "County Office Building"
+    	start_date Date.current
+    	end_date Date.current + 2
+    	status "complete"
+    	active true
+    	audit nil
+  	end
+  
+  	factory :material_type do
+   		name "Plastic Forks"
+    	category "landfill"
+    	active true
+  	end
+
 	factory :user do
 	    first_name "MyString"
 	    last_name "MyString"
@@ -29,6 +56,7 @@ FactoryBot.define do
 		audit_type "Building"
 		start_date "2018-02-18 22:35:42"
 		end_date nil
+		notes nil
 		active true
 		user nil
 		client nil

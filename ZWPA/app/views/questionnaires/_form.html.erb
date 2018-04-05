@@ -84,8 +84,10 @@
                         <br>
                         <br>
                           <div class="row">
-                          <%= f.submit nil, class: :"btn waves-effect waves-light right" %>
-                          <%= link_to 'Cancel', audit_path(@audit.id), class: :"btn waves-effect waves-light #ffcdd2 red lighten-3 right" %>
+                          <%= f.submit "Submit", class: :"btn waves-effect waves-light right" %>
+                          <% unless @audit.nil? %>
+                            <%= link_to 'Cancel', audit_path(@audit.id), class: :"btn waves-effect waves-light #ffcdd2 red lighten-3 right" %>
+                          <% end %>
                           </div>
                   <% end %>
 
