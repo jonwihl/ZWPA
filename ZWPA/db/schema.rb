@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321215801) do
+ActiveRecord::Schema.define(version: 20180405010651) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.boolean "active"
+    t.integer "audit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["audit_id"], name: "index_areas_on_audit_id"
+  end
 
   create_table "audits", force: :cascade do |t|
     t.string "name"
@@ -40,6 +49,14 @@ ActiveRecord::Schema.define(version: 20180321215801) do
     t.string "contact_title"
     t.string "contact_first_name"
     t.string "contact_last_name"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "material_types", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -102,6 +119,22 @@ ActiveRecord::Schema.define(version: 20180321215801) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "waste_infos", force: :cascade do |t|
+    t.string "category"
+    t.string "true_category"
+    t.float "weight"
+    t.text "notes"
+    t.boolean "anomaly"
+    t.datetime "timestamp"
+    t.boolean "active"
+    t.integer "area_id"
+    t.integer "material_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_waste_infos_on_area_id"
+    t.index ["material_type_id"], name: "index_waste_infos_on_material_type_id"
   end
 
 end

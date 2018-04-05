@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Waste Infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>True category</th>
+      <th>Weight</th>
+      <th>Notes</th>
+      <th>Anomaly</th>
+      <th>Timestamp</th>
+      <th>Active</th>
+      <th>Area</th>
+      <th>Material type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @waste_infos.each do |waste_info| %>
+      <tr>
+        <td><%= waste_info.category %></td>
+        <td><%= waste_info.true_category %></td>
+        <td><%= waste_info.weight %></td>
+        <td><%= waste_info.notes %></td>
+        <td><%= waste_info.anomaly %></td>
+        <td><%= waste_info.timestamp %></td>
+        <td><%= waste_info.active %></td>
+        <td><%= waste_info.area %></td>
+        <td><%= waste_info.material_type %></td>
+        <td><%= link_to 'Show', waste_info %></td>
+        <td><%= link_to 'Edit', edit_waste_info_path(waste_info) %></td>
+        <td><%= link_to 'Destroy', waste_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Waste Info', new_waste_info_path %>

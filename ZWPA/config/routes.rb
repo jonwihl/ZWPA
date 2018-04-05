@@ -1,4 +1,7 @@
 ZWPA::Application.routes.draw do
+  resources :waste_infos
+  resources :areas
+  resources :material_types
 	resources :audits
 	resources :questionnaires
 	resources :clients
