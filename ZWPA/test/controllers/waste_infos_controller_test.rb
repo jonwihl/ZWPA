@@ -8,7 +8,7 @@ class WasteInfosControllerTest < ActionDispatch::IntegrationTest
       
     teardown do
         delete_waste_infos
-        delete_areas
+        # delete_areas
     end
 
     test "should get index" do
