@@ -2,40 +2,28 @@
 <html>
 	<head>
 	    <title>PRC ZWPA</title>
-
-
-
-	<%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Nunito|Varela+Round" %>
-	<%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
-
-
-
+	        <%= stylesheet_link_tag 'application', media: 'all' %>
+            <%= javascript_include_tag 'application' %>
+            <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+            <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans|Nunito|Varela+Round" %>
+	        <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
   	</head>
+
 	<body>
-
 		<header>
-		<%= render partial: 'partials/nav' %>
-
-	</header>
-		<main>
+		    <%= render partial: 'partials/nav' %>
+	    </header>
 		
+        <main>
+		    <% flash.each do |name, msg| %>
+                <%= content_tag :div, msg, id: "flash_#{name}" %>
+            <% end %>
 
-		<% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, id: "flash_#{name}" %>
-        <% end %>
-
-        <div class="container">
-
-    	<%= yield %>
-
-    	</div>
-</main>
-
+            <div class="container">
+    	        <%= yield %>
+    	    </div>
+        </main>
 
     	<%= render partial: 'partials/footer' %>
-
 	</body>
 </html>
