@@ -52,6 +52,32 @@ $(document).ready(function() {
         ]
     });
 
+    $("#landfill").dataTable( {
+    columnDefs: [
+        { targets: [0, 1, 2, 3], visible: true, },
+        ]
+    });
+    $("#recycle").dataTable( {
+    columnDefs: [
+        { targets: [0, 1, 2, 3], visible: true, },
+        ]
+    });
+    $("#compost").dataTable( {
+    columnDefs: [
+        { targets: [0, 1, 2, 3], visible: true, },
+        ]
+    });
+    $("#reuse").dataTable( {
+    columnDefs: [
+        { targets: [0, 1, 2, 3], visible: true, },
+        ]
+    });
+    $("#food_recovery").dataTable( {
+    columnDefs: [
+        { targets: [0, 1, 2, 3], visible: true, },
+        ]
+    });
+
     $("#dashboard").dataTable();
 
     $('.carousel').carousel();
