@@ -25,6 +25,7 @@ class AreasController < ApplicationController
     # POST /areas.json
     def create
         @area = Area.new(area_params)
+        @area.start_date = Date.today
         @area.active = true
         @area.status = "in progress"
         if @area.save
