@@ -51,12 +51,10 @@
                       <% if @audit.questionnaire_id.nil? %>
                         <td><%= link_to 'Questionnaire', new_questionnaire_path(audit: @audit.id) %></td>
                       <% else %>
-                      <!-- this is the wrong path, need to figure  this out -->
                         <td><%= link_to 'Questionnaire', edit_questionnaire_path(@audit.questionnaire_id, audit: @audit.id) %> </td>
                       <% end %>
                       <td> <%= @questionnaire_status %>%</td>
                     </tr>
-
                     <tr>
                       <td>Data collection</td>
                       <td>0%</td>
@@ -70,11 +68,11 @@
         <div class="card-panel center">
             <span class="card-title"><h6>Raw Data</h6></span>
             <span >
-                <div class="collection">
-                    <a href="#!" class="collection-item active">All</a>
-                    <a href="#!" class="collection-item">Building A</a>
-                    <a href="#!" class="collection-item">Cafe</a>
-                </div>
+                <ul class="collection">
+                  <% for a in @areas%>
+                  <li class="collection-item"><%= link_to a.name, area_path(a.id, audit: @audit.id) %></li>
+                  <% end %>
+                </ul>
             </span>
         </div>
     </div>
