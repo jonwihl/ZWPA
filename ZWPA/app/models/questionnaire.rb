@@ -46,4 +46,11 @@ class Questionnaire < ActiveRecord::Base
 	validates :recertify_leed, inclusion: OPTION_KEYS, allow_blank: true
 	validates :true_zero_waste_audit, inclusion: OPTION_KEYS, allow_blank: true
 	validates :prc_waste_audit, inclusion: OPTION_KEYS, allow_blank: true
+
+    def status 
+        num_fields = self.attributes.values.count.to_f
+        num_filled_fields = (num_fields - self.attributes.values.select(&:blank?).count).to_f
+        status_percentage = ((num_filled_fields / num_fields) * 100).round(1)
+        return status_percentage
+    end
 end
