@@ -24,7 +24,7 @@
                 </thead>
 
                 <tbody>
-                    <% @landfill do |landfill| %>
+                    <% @landfill.each do |landfill| %>
                         <tr>
                             <td><%= landfill.category %></td>
                             <td><%= landfill.name %></td>
