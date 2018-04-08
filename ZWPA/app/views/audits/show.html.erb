@@ -16,7 +16,7 @@
 <div class="row center">
     <!-- top button row -->
     <div class="col s4">
-        <a class="waves-effect waves-light btn"><i class="material-icons left">assignment</i>Record Data</a>
+          <%= link_to 'Record data', new_area_path(audit: @audit.id), class: :"btn waves-effect waves-light" %>
     </div>
 
     <div class="col s4">
@@ -51,8 +51,8 @@
                       <% if @audit.questionnaire_id.nil? %>
                         <td><%= link_to 'Questionnaire', new_questionnaire_path(audit: @audit.id) %></td>
                       <% else %>
-                      <!-- this is the wrong path, need to figure this out -->
-                        <%= link_to 'Questionnaire', questionnaire_path %> 
+                      <!-- this is the wrong path, need to figure  this out -->
+                        <td><%= link_to 'Questionnaire', edit_questionnaire_path(@audit.questionnaire_id, audit: @audit.id) %> </td>
                       <% end %>
                       <td>0%</td>
                     </tr>

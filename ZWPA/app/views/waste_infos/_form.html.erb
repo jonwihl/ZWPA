@@ -1,19 +1,51 @@
-<%= simple_form_for(@waste_info) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :category %>
-    <%= f.input :true_category %>
-    <%= f.input :weight %>
-    <%= f.input :notes %>
-    <%= f.input :anomaly %>
-    <%= f.input :timestamp %>
-    <%= f.input :active %>
-    <%= f.association :area %>
-    <%= f.association :material_type %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<div class="row">
+    <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s2"><a href="#c1" class="teal-text text-darken-2">Landfill</a></li>
+            <li class="tab col s2"><a href="#c2" class="teal-text text-darken-2">Recycle</a></li>
+            <li class="tab col s2"><a href="#c3" class="teal-text text-darken-2">Compost</a></li>
+            <li class="tab col s2"><a href="#c4" class="teal-text text-darken-2">Reuse</a></li>
+            <li class="tab col s2"><a href="#c5" class="teal-text text-darken-2">Food Recovery</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div id="c1" >
+      <%= simple_form_for(@waste_info) do |f| %>
+        <%= f.error_notification %>
+        <div class="col s6">
+          <%= f.input :category, as: :hidden, input_html: { value: "landfill"} %>
+          <%= f.input :area_id, as: :hidden, input_html: { value: params[:area]} %>
+          <%= f.input :timestamp, as: :hidden, input_html: { value: Time.now} %>
+          <%= f.input :true_category %>
+          <%= f.input :weight %>
+          <%= f.association :material_type %>
+
+        </div>
+        <div class="col s6">
+            <%= f.input :notes %>
+            <%= f.input :anomaly, collection: [true, false]%>
+            <%= f.button :submit, class: :"btn waves-effect waves-light right"%>
+         </div>         
+      <% end %>
+
+    </div>
+
+
+    <div id="c2" class="col s12">
+    </div>
+
+
+    <div id="c3" class="col s12">
+    </div>
+
+    <div id="c4" class="col s12">
+    </div>
+
+    <div id="c5" class="col s12">
+    </div>
+
+
+</div>

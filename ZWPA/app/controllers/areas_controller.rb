@@ -14,6 +14,8 @@ class AreasController < ApplicationController
 
     # GET /areas/new
     def new
+        @audit = Audit.find(params[:audit])
+        @existing_areas = Area.for_audit(@audit.id)
         @area = Area.new
     end
 
@@ -29,7 +31,7 @@ class AreasController < ApplicationController
         @area.active = true
         @area.status = "in progress"
         if @area.save
-            redirect_to areas_url, notice: "#{@area.name} has been added to the system"
+            redirect_to new_waste_info_path(area: @area), notice: "#{@area.name} has been added to the system"
         else
             flash[:error] = "This area could not be created."
             render "new"

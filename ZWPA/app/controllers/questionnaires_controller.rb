@@ -20,13 +20,16 @@ class QuestionnairesController < ApplicationController
 
     # GET /questionnaires/1/edit
     def edit
+        @audit = Audit.find(params[:audit]) 
     end
 
     # POST /questionnaires
     # POST /questionnaires.json
     def create
         @questionnaire = Questionnaire.new(questionnaire_params)
+        @audit = Audit.find(params[:audit]) 
         if @questionnaire.save
+            @audit.update_attribute(:questionnaire_id, @questionnaire.id)
             redirect_to @questionnaire, notice: "The questionnaire has been saved."
         else
             flash[:error] = "The questionnaire could not be saved."
@@ -37,6 +40,7 @@ class QuestionnairesController < ApplicationController
     # PATCH/PUT /questionnaires/1
     # PATCH/PUT /questionnaires/1.json
     def update
+        @audit = Audit.find(params[:audit]) 
         if @questionnaire.update_attributes(questionnaire_params)
           flash[:notice] = "The questionnaire has been updated."
           redirect_to @questionnaire

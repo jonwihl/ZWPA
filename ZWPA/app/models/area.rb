@@ -6,6 +6,7 @@ class Area < ApplicationRecord
   	validates_inclusion_of :status, :in => ["in progress", "complete"]
 
   	scope :alphabetical, -> { order('name') }
+    scope :for_audit, ->(audit_id) { where('audit_id == ?', audit_id) }
   	scope :active, -> { where(active: true) }
     scope :inactive, -> { where(active: false) }
     scope :in_progress, -> { where(status: "in progress") }
