@@ -54,27 +54,27 @@ $(document).ready(function() {
 
     $("#landfill").dataTable( {
     columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
+        { targets: [0, 1, 2, 3, 4], visible: true, },
         ]
     });
     $("#recycle").dataTable( {
     columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
+        { targets: [0, 1, 2, 3, 4], visible: true, },
         ]
     });
     $("#compost").dataTable( {
     columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
+        { targets: [0, 1, 2, 3, 4], visible: true, },
         ]
     });
     $("#reuse").dataTable( {
     columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
+        { targets: [0, 1, 2, 3, 4], visible: true, },
         ]
     });
     $("#food_recovery").dataTable( {
     columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
+        { targets: [0, 1, 2, 3, 4], visible: true, },
         ]
     });
 
@@ -86,12 +86,13 @@ $(document).ready(function() {
  // Flash fade
 $(function() {
    $('.alert-box').fadeIn('normal', function() {
-      $(this).delay(500).fadeOut();
+      $(this).fadeOut(2000);
    });
 });
 
 $(function() {
    $('.error-alert-box').fadeIn('normal');
+   $('.error-alert-box' ).fadeOut(2000);
 });
 
 

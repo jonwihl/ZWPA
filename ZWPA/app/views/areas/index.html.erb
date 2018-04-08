@@ -1,31 +1,153 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s2"><a href="#c1" class="teal-text text-darken-2">Landfill</a></li>
+            <li class="tab col s2"><a href="#c2" class="teal-text text-darken-2">Recycle</a></li>
+            <li class="tab col s2"><a href="#c3" class="teal-text text-darken-2">Compost</a></li>
+            <li class="tab col s2"><a href="#c4" class="teal-text text-darken-2">Reuse</a></li>
+            <li class="tab col s2"><a href="#c5" class="teal-text text-darken-2">Food Recovery</a></li>
+        </ul>
+    </div>
+</div>
 
-<h1>Areas</h1>
+<div class="row">
+    <div id="c1" class="col s12">
+        <table id = "landfill" class="display">
+          <thead>
+            <tr>
+                <th>Category</th>
+                <th>Weight</th>
+                <th>Notes</th>
+                <th>Anomaly</th>
+                <th>True Category</th>
+            </tr>
+          </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Active</th>
-      <th>Audit</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <tbody>
+            <% @areas.each do |area| %>
+                <% area.waste_infos.waste_category('landfill').each do |waste| %>
+                    <tr>
+                        <td><%= waste.category %></td>
+                        <td><%= waste.name %></td>
+                        <td><%= waste.notes %></td>
+                        <td><%= waste.anomaly %></td>
+                        <td><%= waste.true_category %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    <div id="c2" class="col s12">
+        <table id = "recycle" class="display">
+          <thead>
+            <tr>
+                <th>Category</th>
+                <th>Weight</th>
+                <th>Notes</th>
+                <th>Anomaly</th>
+                <th>True Category</th>
+            </tr>
+          </thead>
 
-  <tbody>
-    <% @areas.each do |area| %>
-      <tr>
-        <td><%= area.name %></td>
-        <td><%= area.active %></td>
-        <td><%= area.audit %></td>
-        <td><%= link_to 'Show', area %></td>
-        <td><%= link_to 'Edit', edit_area_path(area) %></td>
-        <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @areas.each do |area| %>
+                <% area.waste_infos.waste_category('recycle').each do |waste| %>
+                    <tr>
+                        <td><%= waste.category %></td>
+                        <td><%= waste.name %></td>
+                        <td><%= waste.notes %></td>
+                        <td><%= waste.anomaly %></td>
+                        <td><%= waste.true_category %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    <div id="c3" class="col s12">
+        <table id = "compost" class="display">
+          <thead>
+            <tr>
+                <th>Category</th>
+                <th>Weight</th>
+                <th>Notes</th>
+                <th>Anomaly</th>
+                <th>True Category</th>
+            </tr>
+          </thead>
 
-<br>
+          <tbody>
+            <% @areas.each do |area| %>
+                <% area.waste_infos.waste_category('compost').each do |waste| %>
+                    <tr>
+                        <td><%= waste.category %></td>
+                        <td><%= waste.name %></td>
+                        <td><%= waste.notes %></td>
+                        <td><%= waste.anomaly %></td>
+                        <td><%= waste.true_category %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    <div id="c4" class="col s12">
+        <table id = "reuse" class="display">
+          <thead>
+            <tr>
+                <th>Category</th>
+                <th>Weight</th>
+                <th>Notes</th>
+                <th>Anomaly</th>
+                <th>True Category</th>
+            </tr>
+          </thead>
 
-<%= link_to 'New Area', new_area_path %>
+          <tbody>
+            <% @areas.each do |area| %>
+                <% area.waste_infos.waste_category('reuse').each do |waste| %>
+                    <tr>
+                        <td><%= waste.category %></td>
+                        <td><%= waste.name %></td>
+                        <td><%= waste.notes %></td>
+                        <td><%= waste.anomaly %></td>
+                        <td><%= waste.true_category %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    <div id="c5" class="col s12">
+        <table id= "food_recovery" class="display">
+          <thead>
+            <tr>
+                <th>Category</th>
+                <th>Weight</th>
+                <th>Notes</th>
+                <th>Anomaly</th>
+                <th>True Category</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @areas.each do |area| %>
+                <% area.waste_infos.waste_category('food_recovery').each do |waste| %>
+                    <tr>
+                        <td><%= waste.category %></td>
+                        <td><%= waste.name %></td>
+                        <td><%= waste.notes %></td>
+                        <td><%= waste.anomaly %></td>
+                        <td><%= waste.true_category %></td>
+                    </tr>
+                <% end %>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+
+    <br>
+</div>
+
+

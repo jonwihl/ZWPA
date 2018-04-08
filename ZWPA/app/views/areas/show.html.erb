@@ -18,17 +18,18 @@
                         <th>Category</th>
                         <th>Weight</th>
                         <th>Notes</th>
+                        <th>Anomaly</th>
                         <th>True Category</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <% @area.waste_infos.waste_category('landfill').each do |area| %>
+                    <% @landfill do |landfill| %>
                         <tr>
-                            <td><%= area.category %></td>
-                            <td><%= area.name %></td>
-                            <td><%= area.notes %></td>
-                            <td><%= area.true_category %></td>
+                            <td><%= landfill.category %></td>
+                            <td><%= landfill.name %></td>
+                            <td><%= landfill.notes %></td>
+                            <td><%= landfill.true_category %></td>
                         </tr>
                     <% end %>
                 </tbody>
@@ -41,17 +42,18 @@
                         <th>Category</th>
                         <th>Weight</th>
                         <th>Notes</th>
+                        <th>Anomaly</th>
                         <th>True Category</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <% @area.waste_infos.waste_category('recycle').each do |area| %>
+                    <% @recycling.each do |recycle| %>
                         <tr>
-                            <td><%= area.category %></td>
-                            <td><%= area.name %></td>
-                            <td><%= area.notes %></td>
-                            <td><%= area.true_category %></td>
+                            <td><%= recycle.category %></td>
+                            <td><%= recycle.name %></td>
+                            <td><%= recycle.notes %></td>
+                            <td><%= recycle.true_category %></td>
                         </tr>
                     <% end %>
                 </tbody>
@@ -64,17 +66,18 @@
                         <th>Category</th>
                         <th>Weight</th>
                         <th>Notes</th>
+                        <th>Anomaly</th>
                         <th>True Category</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <% @area.waste_infos.waste_category('compost').each do |area| %>
+                    <% @compost.each do |compost| %>
                         <tr>
-                            <td><%= area.category %></td>
-                            <td><%= area.name %></td>
-                            <td><%= area.notes %></td>
-                            <td><%= area.true_category %></td>
+                            <td><%= compost.category %></td>
+                            <td><%= compost.name %></td>
+                            <td><%= compost.notes %></td>
+                            <td><%= compost.true_category %></td>
                         </tr>
                     <% end %>
                 </tbody>
@@ -87,17 +90,18 @@
                         <th>Category</th>
                         <th>Weight</th>
                         <th>Notes</th>
+                        <th>Anomaly</th>
                         <th>True Category</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <% @area.waste_infos.waste_category('reuse').each do |area| %>
+                    <% @reuse.each do |reuse| %>
                         <tr>
-                            <td><%= area.category %></td>
-                            <td><%= area.name %></td>
-                            <td><%= area.notes %></td>
-                            <td><%= area.true_category %></td>
+                            <td><%= reuse.category %></td>
+                            <td><%= reuse.name %></td>
+                            <td><%= reuse.notes %></td>
+                            <td><%= reuse.true_category %></td>
                         </tr>
                     <% end %>
                 </tbody>
@@ -110,17 +114,18 @@
                         <th>Category</th>
                         <th>Weight</th>
                         <th>Notes</th>
+                        <th>Anomaly</th>
                         <th>True Category</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <% @area.waste_infos.waste_category('food recovery').each do |area| %>
+                    <% @food_recovery.each do |food| %>
                         <tr>
-                            <td><%= area.category %></td>
-                            <td><%= area.name %></td>
-                            <td><%= area.notes %></td>
-                            <td><%= area.true_category %></td>
+                            <td><%= food.category %></td>
+                            <td><%= food.name %></td>
+                            <td><%= food.notes %></td>
+                            <td><%= food.true_category %></td>
                         </tr>
                     <% end %>
                 </tbody>
