@@ -1,0 +1,17 @@
+<%= simple_form_for(@waste_info) do |f| %>
+    <%= f.error_notification %>
+    <div class="col s6">
+        <%= f.input :category, as: :hidden, input_html: { value: "landfill"} %>
+        <%= f.input :area_id, as: :hidden %>
+        <%= f.input :timestamp, as: :hidden %>
+        <%= f.input :true_category %>
+        <%= f.input :weight %>
+        <%= f.association :material_type %>
+    </div>
+
+    <div class="col s6">
+        <%= f.input :notes %>
+        <%= f.input :anomaly, collection: [true, false]%>
+        <%= f.button :submit, class: :"btn waves-effect waves-light right"%>
+    </div>         
+<% end %>

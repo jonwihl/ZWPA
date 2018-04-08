@@ -10,7 +10,8 @@ class WasteInfosController < ApplicationController
     # GET /waste_infos/1
     # GET /waste_infos/1.json
     def show
-        @waste_info = 
+        # @area_id = params[:area]
+        # @waste_info = WasteInfo.area_waste(@area_id)
     end
 
     # GET /waste_infos/new
@@ -25,16 +26,18 @@ class WasteInfosController < ApplicationController
     # POST /waste_infos
     # POST /waste_infos.json
     def create
+        @area_id = params[:area]
         @waste_info = WasteInfo.new(waste_info_params)
         @waste_info.active = true
         @waste_info.timestamp = Date.current
+        @waste_info.area_id = @area_id
 
         if @waste_info.true_category.blank?
             @waste_info.true_category = @waste_info.category
         end
 
         if @waste_info.save
-            redirect_to waste_infos_url, notice: "The waste information has been added to the system"
+            redirect_to new_waste_info_path(area: @area_id), notice: "The waste information has been added to the system"
         else
             flash[:error] = "This waste information could not be created."
             render "new"
