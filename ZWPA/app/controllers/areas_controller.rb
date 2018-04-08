@@ -13,13 +13,10 @@ class AreasController < ApplicationController
     def show
         @audit = Audit.find(params[:audit])
         @landfill = WasteInfo.area_waste(@area.id).waste_category('landfill')
-        puts "___________________________________________________"
-        print WasteInfo.area_waste(@area.id).waste_category('landfill')
-        puts "___________________________________________________"
-        @compost = @area.waste_infos.waste_category('compost')
-        @recycling = @area.waste_infos.waste_category('recycling')
-        @reuse = @area.waste_infos.waste_category('reuse')
-        @food_recovery = @area.waste_infos.waste_category('food recovery')
+        @compost = WasteInfo.area_waste(@area.id).waste_category('compost')
+        @recycling = WasteInfo.area_waste(@area.id).waste_category('recycling')
+        @reuse = WasteInfo.area_waste(@area.id).waste_category('reuse')
+        @food_recovery = WasteInfo.area_waste(@area.id).waste_category('food recovery')
     end
 
     # GET /areas/new

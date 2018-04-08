@@ -1,0 +1,23 @@
+<table id = "landfill" class="display">
+    <thead>
+        <tr>
+            <th>True Category</th>
+            <th>Weight</th>
+            <th>Anomaly</th> 
+            <th>Material Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% category.each do |c| %>
+            <tr>
+                <td><%= c.true_category %></td>
+                <td><%= c.weight %></td>
+                <td><%= c.anomaly %></td>
+                <td><%= c.material_type %></td>
+                <td><%= c.notes %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

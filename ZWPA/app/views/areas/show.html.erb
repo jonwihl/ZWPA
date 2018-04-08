@@ -12,124 +12,19 @@
 </div>
 <div class="row">
     <div id="c1" class="col s12">
-            <table id = "landfill" class="display">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Weight</th>
-                        <th>Notes</th>
-                        <th>Anomaly</th>
-                        <th>True Category</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% @landfill.each do |landfill| %>
-                        <tr>
-                            <td><%= landfill.category %></td>
-                            <td><%= landfill.name %></td>
-                            <td><%= landfill.notes %></td>
-                            <td><%= landfill.true_category %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
+        <%= render partial: "waste_info_table", locals: {category: @landfill} %>
     </div>
     <div id="c2" class="col s12">
-            <table id = "recycle" class="display">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Weight</th>
-                        <th>Notes</th>
-                        <th>Anomaly</th>
-                        <th>True Category</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% @recycling.each do |recycle| %>
-                        <tr>
-                            <td><%= recycle.category %></td>
-                            <td><%= recycle.name %></td>
-                            <td><%= recycle.notes %></td>
-                            <td><%= recycle.true_category %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
+        <%= render partial: "waste_info_table", locals: {category: @recycling} %>
     </div>
     <div id="c3" class="col s12">
-            <table id = "compost" class="display">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Weight</th>
-                        <th>Notes</th>
-                        <th>Anomaly</th>
-                        <th>True Category</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% @compost.each do |compost| %>
-                        <tr>
-                            <td><%= compost.category %></td>
-                            <td><%= compost.name %></td>
-                            <td><%= compost.notes %></td>
-                            <td><%= compost.true_category %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
+        <%= render partial: "waste_info_table", locals: {category: @compost} %>
     </div>
     <div id="c4" class="col s12">
-            <table id = "reuse" class="display">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Weight</th>
-                        <th>Notes</th>
-                        <th>Anomaly</th>
-                        <th>True Category</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% @reuse.each do |reuse| %>
-                        <tr>
-                            <td><%= reuse.category %></td>
-                            <td><%= reuse.name %></td>
-                            <td><%= reuse.notes %></td>
-                            <td><%= reuse.true_category %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
+        <%= render partial: "waste_info_table", locals: {category: @reuse} %>
     </div>
     <div id="c5" class="col s12">
-            <table id = "food_recovery" class="display">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Weight</th>
-                        <th>Notes</th>
-                        <th>Anomaly</th>
-                        <th>True Category</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% @food_recovery.each do |food| %>
-                        <tr>
-                            <td><%= food.category %></td>
-                            <td><%= food.name %></td>
-                            <td><%= food.notes %></td>
-                            <td><%= food.true_category %></td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
+        <%= render partial: "waste_info_table", locals: {category: @food_recovery} %>
     </div>
 </div>
 
