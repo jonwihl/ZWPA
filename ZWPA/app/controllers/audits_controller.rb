@@ -8,6 +8,11 @@ class AuditsController < ApplicationController
 
     def show
         @areas = Area.for_audit(@audit.id)
+        unless @audit.questionnaire_id.nil?
+            @questionnaire_status = Questionnaire.find(@audit.questionnaire_id).status
+        else
+            @questionnaire_status = 0
+        end
     end
 
     def new

@@ -13,37 +13,44 @@ class Questionnaire < ActiveRecord::Base
 
 	# validates_presence_of :management_structure, :location_info, :trash_hauler, :solid_waste_storage, :solid_waste_containers, :solid_waste_info, :recycling_program_info, :buy_recycling_policy_info, :discontinued_recycling_info, :compost_program_info
 
-	validates :square_footage, numericality: { only_integer: false, greater_than: 0 }
-	validates :max_occupancy, numericality: { only_integer: true, greater_than: 0 }
-	validates :num_floors, numericality: { only_integer: true, greater_than: 0 }
-	validates :waste_disposal_system, inclusion: ["centralized", "tenant"]
-	validates :solid_waste_system, inclusion: ["owner", "management co", "tenants"]
-	validates :waste_management_costs, inclusion: OPTION_KEYS
-	validates :loading_dock, inclusion: OPTION_KEYS
-	validates :freight_elevators, inclusion: OPTION_KEYS
-	validates :trash_hauler_contract, inclusion: OPTION_KEYS
-	validates :trash_hauler_copy, inclusion: OPTION_KEYS
-	validates :record_of_waste_vol, inclusion: OPTION_KEYS
-	validates :recycling_mandated, inclusion: OPTION_KEYS
-	validates :recycling_program, inclusion: OPTION_KEYS
-	validates :recycling_program_stream, inclusion: ["single", "dual"]
-	validates :buy_recycling_policy, inclusion: OPTION_KEYS
-	validates :compost_waste_current, inclusion: OPTION_KEYS
-	validates :compost_waste_past, inclusion: OPTION_KEYS
-	validates :toner, inclusion: OPTION_KEYS
-	validates :cfls, inclusion: OPTION_KEYS
-	validates :batteries, inclusion: OPTION_KEYS
-	validates :peripherals, inclusion: OPTION_KEYS
-	validates :cell_phones, inclusion: OPTION_KEYS
-	validates :tvs, inclusion: OPTION_KEYS
-	validates :corded_equipment, inclusion: OPTION_KEYS
-	validates :furniture, inclusion: OPTION_KEYS
-	validates :linens, inclusion: OPTION_KEYS
-	validates :construction_debris, inclusion: OPTION_KEYS
-	validates :pallets, inclusion: OPTION_KEYS
-	validates :zero_waste_policy, inclusion: OPTION_KEYS
-	validates :leed_certified, inclusion: OPTION_KEYS
-	validates :recertify_leed, inclusion: OPTION_KEYS
-	validates :true_zero_waste_audit, inclusion: OPTION_KEYS
-	validates :prc_waste_audit, inclusion: OPTION_KEYS
+	validates :square_footage, numericality: { only_integer: false, greater_than: 0 }, allow_blank: true
+	validates :max_occupancy, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
+	validates :num_floors, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
+	validates :waste_disposal_system, inclusion: ["centralized", "tenant"], allow_blank: true
+	validates :solid_waste_system, inclusion: ["owner", "management co", "tenants"], allow_blank: true
+	validates :waste_management_costs, inclusion: OPTION_KEYS, allow_blank: true
+	validates :loading_dock, inclusion: OPTION_KEYS, allow_blank: true
+	validates :freight_elevators, inclusion: OPTION_KEYS, allow_blank: true
+	validates :trash_hauler_contract, inclusion: OPTION_KEYS, allow_blank: true
+	validates :trash_hauler_copy, inclusion: OPTION_KEYS, allow_blank: true
+	validates :record_of_waste_vol, inclusion: OPTION_KEYS, allow_blank: true
+	validates :recycling_mandated, inclusion: OPTION_KEYS, allow_blank: true
+	validates :recycling_program, inclusion: OPTION_KEYS, allow_blank: true
+	validates :recycling_program_stream, inclusion: ["single", "dual"], allow_blank: true
+	validates :buy_recycling_policy, inclusion: OPTION_KEYS, allow_blank: true
+	validates :compost_waste_current, inclusion: OPTION_KEYS, allow_blank: true
+	validates :compost_waste_past, inclusion: OPTION_KEYS, allow_blank: true
+	validates :toner, inclusion: OPTION_KEYS, allow_blank: true
+	validates :cfls, inclusion: OPTION_KEYS, allow_blank: true
+	validates :batteries, inclusion: OPTION_KEYS, allow_blank: true
+	validates :peripherals, inclusion: OPTION_KEYS, allow_blank: true
+	validates :cell_phones, inclusion: OPTION_KEYS, allow_blank: true
+	validates :tvs, inclusion: OPTION_KEYS, allow_blank: true
+	validates :corded_equipment, inclusion: OPTION_KEYS, allow_blank: true
+	validates :furniture, inclusion: OPTION_KEYS, allow_blank: true
+	validates :linens, inclusion: OPTION_KEYS, allow_blank: true
+	validates :construction_debris, inclusion: OPTION_KEYS, allow_blank: true
+	validates :pallets, inclusion: OPTION_KEYS, allow_blank: true
+	validates :zero_waste_policy, inclusion: OPTION_KEYS, allow_blank: true
+	validates :leed_certified, inclusion: OPTION_KEYS, allow_blank: true
+	validates :recertify_leed, inclusion: OPTION_KEYS, allow_blank: true
+	validates :true_zero_waste_audit, inclusion: OPTION_KEYS, allow_blank: true
+	validates :prc_waste_audit, inclusion: OPTION_KEYS, allow_blank: true
+
+    def status 
+        num_fields = self.attributes.values.count.to_f
+        num_filled_fields = (num_fields - self.attributes.values.select(&:blank?).count).to_f
+        status_percentage = ((num_filled_fields / num_fields) * 100).round(1)
+        return status_percentage
+    end
 end
