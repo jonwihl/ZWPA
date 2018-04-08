@@ -4,12 +4,19 @@ class AreasController < ApplicationController
     # GET /areas
     # GET /areas.json
     def index
-        @areas = Area.all
+        @audit = Audit.find(params[:audit])
+        @areas = Area.for_audit(@audit.id)
     end
 
     # GET /areas/1
     # GET /areas/1.json
     def show
+        @audit = Audit.find(params[:audit])
+        @landfill = @area.waste_infos.waste_category('landfill')
+        @compost = @area.waste_infos.waste_category('compost')
+        @recycling = @area.waste_infos.waste_category('recycling')
+        @reuse = @area.waste_infos.waste_category('reuse')
+        @food_recovery = @area.waste_infos.waste_category('food recovery')
     end
 
     # GET /areas/new

@@ -10,6 +10,7 @@ class WasteInfosController < ApplicationController
     # GET /waste_infos/1
     # GET /waste_infos/1.json
     def show
+        @waste_info = 
     end
 
     # GET /waste_infos/new

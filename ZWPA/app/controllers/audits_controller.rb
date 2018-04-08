@@ -7,6 +7,7 @@ class AuditsController < ApplicationController
     end
 
     def show
+        @areas = Area.for_audit(@audit.id)
     end
 
     def new
