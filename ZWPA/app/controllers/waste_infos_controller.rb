@@ -30,6 +30,9 @@ class WasteInfosController < ApplicationController
         @waste_info = WasteInfo.new(waste_info_params)
         @waste_info.active = true
         @waste_info.timestamp = Date.current
+        puts "----------------------------------------------------"
+        puts params[:area]
+        puts "----------------------------------------------------"
         @waste_info.area_id = @area_id
 
         if @waste_info.true_category.blank?

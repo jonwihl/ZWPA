@@ -12,7 +12,10 @@ class AreasController < ApplicationController
     # GET /areas/1.json
     def show
         @audit = Audit.find(params[:audit])
-        @landfill = @area.waste_infos.waste_category('landfill')
+        @landfill = WasteInfo.area_waste(@area.id).waste_category('landfill')
+        puts "___________________________________________________"
+        print WasteInfo.area_waste(@area.id).waste_category('landfill')
+        puts "___________________________________________________"
         @compost = @area.waste_infos.waste_category('compost')
         @recycling = @area.waste_infos.waste_category('recycling')
         @reuse = @area.waste_infos.waste_category('reuse')
