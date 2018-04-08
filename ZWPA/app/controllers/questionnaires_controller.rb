@@ -30,7 +30,7 @@ class QuestionnairesController < ApplicationController
         @audit = Audit.find(params[:audit]) 
         if @questionnaire.save
             @audit.update_attribute(:questionnaire_id, @questionnaire.id)
-            redirect_to @questionnaire, notice: "The questionnaire has been saved."
+            redirect_to @audit, notice: "The questionnaire has been saved."
         else
             flash[:error] = "The questionnaire could not be saved."
             render "new"
@@ -43,7 +43,7 @@ class QuestionnairesController < ApplicationController
         @audit = Audit.find(params[:audit]) 
         if @questionnaire.update_attributes(questionnaire_params)
           flash[:notice] = "The questionnaire has been updated."
-          redirect_to @questionnaire
+          redirect_to @audit
         else
           render :action => 'edit'
         end
