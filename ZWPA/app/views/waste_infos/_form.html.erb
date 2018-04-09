@@ -21,7 +21,7 @@
 
                         <%= f.input :weight, wrapper_html: { class: 'col s6' } %>
                         <%= f.input :true_category, collection: WasteInfo::CATEGORIES, as: :select, wrapper_html: { class: 'col s6' } %>
-                        <%= f.association :material_type, wrapper_html: { class: 'col s5' } %>
+                        <%= f.input :material_type, collection: MaterialType.active.to_a, wrapper_html: { class: 'col s5' } %>
                         <%= link_to material_icon.add, new_material_type_path, class: "vertical-align-middle inline-block input col s1 new-material-type-btn", remote: true %>
                         <%= f.input :anomaly, collection: [true, false], as: :select, wrapper_html: { class: 'col s6' } %>
                         <%= f.input :notes, wrapper_html: { class: 'col s12' } %>

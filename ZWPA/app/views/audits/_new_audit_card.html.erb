@@ -1,5 +1,4 @@
  <%= simple_form_for @audit do |f| %>
-    <span class="card-title"><%= controller.action_name.capitalize %> Audit</span>    
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
 
         <%= render :partial => "partials/error", locals: {f: f} %><br>
