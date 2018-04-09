@@ -341,6 +341,11 @@ h6 {
   background-color: #1F6E56;
 }
 
-.vertical-align-middle { 
-    vertical-align: bottom; 
+.material-icons, .icon-text {
+    vertical-align: middle !important;
+}
+
+.input-field-two {
+    position: relative;
+    margin-top: 2rem;
 }

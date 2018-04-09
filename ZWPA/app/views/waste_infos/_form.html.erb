@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col s12">
         <ul class="tabs">
-            <li class="tab col s2"><a href="#c1" class="teal-text text-darken-2">Landfill</a></li>
+            <li class="tab col s3"><a href="#c1" class="teal-text text-darken-2">Landfill</a></li>
             <li class="tab col s2"><a href="#c2" class="teal-text text-darken-2">Recycle</a></li>
             <li class="tab col s2"><a href="#c3" class="teal-text text-darken-2">Compost</a></li>
             <li class="tab col s2"><a href="#c4" class="teal-text text-darken-2">Reuse</a></li>
-            <li class="tab col s2"><a href="#c5" class="teal-text text-darken-2">Food Recovery</a></li>
+            <li class="tab col s3"><a href="#c5" class="teal-text text-darken-2">Food Recovery</a></li>
         </ul>
     </div>
 </div><br>
@@ -19,17 +19,21 @@
                 </div>
 
 
-                <div id="c2" class="col s12">
+                <div id="c2">
+                    <%= render partial: "partials/waste_info_form" %>
                 </div>
 
 
-                <div id="c3" class="col s12">
+                <div id="c3">
+                    <%= render partial: "partials/waste_info_form" %>
                 </div>
 
-                <div id="c4" class="col s12">
+                <div id="c4">
+                    <%= render partial: "partials/waste_info_form" %>
                 </div>
 
-                <div id="c5" class="col s12">
+                <div id="c5">
+                    <%= render partial: "partials/waste_info_form" %>
                 </div>
             </div>
         </div>
