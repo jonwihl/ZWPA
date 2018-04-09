@@ -17,6 +17,12 @@ class WasteInfosController < ApplicationController
     # GET /waste_infos/new
     def new
         @waste_info = WasteInfo.new
+        @area_id = params[:area]
+        @landfill = WasteInfo.area_waste(@area_id).waste_category('landfill')
+        @compost = WasteInfo.area_waste(@area_id).waste_category('compost')
+        @recycling = WasteInfo.area_waste(@area_id).waste_category('recycling')
+        @reuse = WasteInfo.area_waste(@area_id).waste_category('reuse')
+        @food_recovery = WasteInfo.area_waste(@area_id).waste_category('food recovery')
     end
 
     # GET /waste_infos/1/edit
@@ -31,6 +37,10 @@ class WasteInfosController < ApplicationController
         @waste_info.active = true
         @waste_info.timestamp = Date.current
         @waste_info.area_id = @area_id
+
+        if @waste_info.anomaly.blank?
+            @waste_info.anomaly = false
+        end
 
         if @waste_info.true_category.blank?
             @waste_info.true_category = @waste_info.category

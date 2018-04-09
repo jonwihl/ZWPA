@@ -14,8 +14,12 @@
             <tr>
                 <td><%= c.true_category %></td>
                 <td><%= c.weight %></td>
-                <td><%= c.anomaly %></td>
-                <td><%= c.material_type %></td>
+                <td>
+                    <% unless c.material_type.nil? %>
+                        <%= c.material_type.name %>
+                    <% end %>
+                </td>
+                <td><%= c.anomaly%></td>
                 <td><%= c.notes %></td>
             </tr>
         <% end %>
