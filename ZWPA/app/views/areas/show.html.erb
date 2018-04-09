@@ -6,7 +6,7 @@
             <li class="tab col s2"><a href="#c3" class="teal-text text-darken-2">Compost</a></li>
             <li class="tab col s2"><a href="#c4" class="teal-text text-darken-2">Reuse</a></li>
             <li class="tab col s3"><a href="#c5" class="teal-text text-darken-2">Food Recovery</a></li>
-            <li class="tab col s1"><a href="#c4" class="teal-text text-darken-2">All</a></li>
+            <li class="tab col s1"><a href="#c6" class="teal-text text-darken-2">All</a></li>
         </ul>
     </div>
 </div>
@@ -29,6 +29,9 @@
                 </div>
                 <div id="c5">
                     <%= render partial: "partials/waste_info_table", locals: {category: @food_recovery} %>
+                </div>
+                <div id="c6">
+                    <%= render partial: "partials/waste_info_table", locals: {category: @all} %>
                 </div>
             </div>
         </div>

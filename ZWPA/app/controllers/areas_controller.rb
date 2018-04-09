@@ -6,6 +6,20 @@ class AreasController < ApplicationController
     def index
         @audit = Audit.find(params[:audit])
         @areas = Area.for_audit(@audit.id)
+        @landfill = Array.new
+        @compost = Array.new
+        @recycling = Array.new
+        @reuse = Array.new
+        @food_recovery = Array.new
+        @all = Array.new
+        for area in @areas
+            @landfill += WasteInfo.area_waste(area.id).waste_category('landfill')
+            @compost += WasteInfo.area_waste(area.id).waste_category('compost')
+            @recycling += WasteInfo.area_waste(area.id).waste_category('recycling')
+            @reuse += WasteInfo.area_waste(area.id).waste_category('reuse')
+            @food_recovery += WasteInfo.area_waste(area.id).waste_category('food recovery')
+            @all += WasteInfo.area_waste(area.id)
+        end
     end
 
     # GET /areas/1
@@ -17,6 +31,7 @@ class AreasController < ApplicationController
         @recycling = WasteInfo.area_waste(@area.id).waste_category('recycling')
         @reuse = WasteInfo.area_waste(@area.id).waste_category('reuse')
         @food_recovery = WasteInfo.area_waste(@area.id).waste_category('food recovery')
+        @all = WasteInfo.area_waste(@area.id)
     end
 
     # GET /areas/new

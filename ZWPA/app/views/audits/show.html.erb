@@ -55,10 +55,12 @@
                       <% end %>
                       <td> <%= @questionnaire_status %>%</td>
                     </tr>
-                    <tr>
-                      <td>Data collection</td>
-                      <td>0%</td>
-                    </tr>
+                    <% for a in @areas %>
+                      <tr>
+                        <td><%= link_to a.name, area_path(a.id, audit: @audit.id) %></td>
+                        <td><%= a.status %></td>
+                      </tr>
+                    <% end%>
                 </tbody>
             </table>
         </div>
@@ -69,7 +71,8 @@
             <span class="card-title"><h6>Raw Data</h6></span>
             <span >
                 <ul class="collection">
-                  <% for a in @areas%>
+                  <li class="collection-item"><b><%= link_to "all", areas_path(audit: @audit.id)  %></b></li>
+                  <% for a in @areas %>
                   <li class="collection-item"><%= link_to a.name, area_path(a.id, audit: @audit.id) %></li>
                   <% end %>
                 </ul>

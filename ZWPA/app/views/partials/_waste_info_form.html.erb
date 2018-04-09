@@ -1,6 +1,6 @@
 <%= simple_form_for(@waste_info) do |f| %>
     <div class = "row">
-        <%= f.input :category, as: :hidden, input_html: { value: "landfill"} %>
+        <%= f.input :category, as: :hidden, input_html: { value: category} %>
         <%= render :partial => "partials/error", locals: {f: f} %><br>
 
         <%= f.input :weight, wrapper_html: { class: 'col s6' } %>
@@ -15,7 +15,7 @@
 
     <div class="row">
         <%= f.button :button, "Add Waste Information", type: 'submit', name: "area", value: params[:area], class: "btn waves-effect waves-light right"%>  
-        <%= link_to "Back", waste_infos_path, class: "btn waves-effect waves-light #ffcdd2 red lighten-4 left" %> 
+        <%= link_to "Back", audits_path, class: "btn waves-effect waves-light #ffcdd2 red lighten-4 left" %> 
     </div>
     <br>
 <% end %>
