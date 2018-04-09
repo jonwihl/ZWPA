@@ -26,11 +26,13 @@ class MaterialTypesController < ApplicationController
     def create
         @material_type = MaterialType.new(material_type_params)
         @material_type.active = true
-        if @material_type.save
-            redirect_to material_types_url, notice: "The material type has been added to the system"
-        else
-            flash[:error] = "This material type could not be created."
-            render "new"
+        respond_to do |format|
+            if @material_type.save
+                format.html { redirect_to material_types_url, notice: "The material type has been added to the system" }
+                format.js
+            else
+                format.html { render action: 'new' }
+            end
         end
     end
 
