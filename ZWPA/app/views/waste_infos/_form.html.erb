@@ -15,27 +15,7 @@
         <div class="card white">
             <div class="card-content">
                 <div id="c1" >
-                    <%= simple_form_for(@waste_info) do |f| %>
-                        <%= f.input :category, as: :hidden, input_html: { value: "landfill"} %>
-                        <%= render :partial => "partials/error", locals: {f: f} %><br>
-
-                        <%= f.input :weight, wrapper_html: { class: 'col s6' } %>
-                        <%= f.input :true_category, collection: WasteInfo::CATEGORIES, as: :select, wrapper_html: { class: 'col s6' } %>
-                        <%= f.input :material_type_id, collection: MaterialType.active.to_a, wrapper_html: { class: 'col s5' } %>
-                        <%= link_to material_icon.add, new_material_type_path, class: "vertical-align-middle inline-block input col s1 new-material-type-btn", remote: true %>
-                        <%= f.input :anomaly, collection: [true, false], as: :select, wrapper_html: { class: 'col s6' } %>
-                        <%= f.input :notes, wrapper_html: { class: 'col s12' } %>
-                        <br><br>
-
-                        <div class="row">
-                            <%= f.submit "Add Waste Information", name: "area", value: params[:area], class: "btn waves-effect waves-light right"%>  
-                            <%= link_to "Back", waste_infos_path, class: "btn waves-effect waves-light #ffcdd2 red lighten-4 right" %> 
-                        </div>
-                        <br>
-                        <div class="col s12">
-                            <%= render partial: "partials/waste_info_table", locals: {category: @landfill} %>
-                        </div>
-                    <% end %>
+                    <%= render partial: "partials/waste_info_form" %>
                 </div>
 
 
@@ -50,6 +30,18 @@
                 </div>
 
                 <div id="c5" class="col s12">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row valign-wrapper">
+    <div class="col s12 valign">
+        <div class="card white">
+            <div class="card-content">
+                <div id="c1">
+                    <%= render partial: "partials/waste_info_table", locals: {category: @landfill} %>
                 </div>
             </div>
         </div>
