@@ -92,7 +92,7 @@ $(function() {
 
 $(function() {
    $('.error-alert-box').fadeIn('normal');
-   $('.error-alert-box' ).fadeOut(2000);
+   $('.error-alert-box').fadeOut(2000);
 });
 
 
@@ -102,7 +102,15 @@ $(document).ready(function() {
     } );
 } );
 
-
+// Mobile sidebar 
+//$(function() {
+//    $('.button-collapse').sideNav({
+//      menuWidth: 300, // Default is 300
+//      edge: 'left', // Choose the horizontal origin
+//      closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+//      draggable: true // Choose whether you can drag to open on touch screens
+//    });
+//} );
 
 //  var elem = document.querySelector('select');
 //   var instance = M.FormSelect.init(elem, options);

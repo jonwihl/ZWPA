@@ -19,7 +19,7 @@
                     <%= render partial: "partials/waste_info_table", locals: {category: @landfill} %>
                 </div>
                 <div id="c2">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @recycling} %>
+                    <%= render partial: "partials/waste_info_table", locals: {category: @recycling} %> 
                 </div>
                 <div id="c3">
                     <%= render partial: "partials/waste_info_table", locals: {category: @compost} %>
@@ -39,4 +39,4 @@
 </div>
 
 
-<%= link_to 'Back', audit_path(@audit.id), class: :"btn waves-effect waves-light red lighten-4 left"  %>
+<%= link_to 'Back', audit_path(@audit.id), class: :"btn waves-effect waves-light red lighten-4 left"%>
