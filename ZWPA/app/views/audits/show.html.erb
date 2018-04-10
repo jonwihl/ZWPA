@@ -57,12 +57,12 @@
                     </tr>
                     <% for a in @areas %>
                       <tr>
-                        <% if a.status = "in progress" %>
-                        <td><%= link_to a.name, new_waste_info_path(area: a.id) %></td>
+                        <% if a.status == "in progress" %>
+                          <td><%= link_to a.name.titleize, new_waste_info_path(area: a.id) %></td>
                         <% else %>
-                        <td><%= a.name %></td>
+                          <td><%= a.name.titleize %></td>
                         <% end%>
-                        <td><%= a.status %></td>
+                        <td><%= a.status.titleize %></td>
                       </tr>
                     <% end%>
                 </tbody>
@@ -77,7 +77,7 @@
                 <ul class="collection">
                   <li class="collection-item"><b><%= link_to "all", areas_path(audit: @audit.id)  %></b></li>
                   <% for a in @areas %>
-                  <li class="collection-item"><%= link_to a.name, area_path(a.id, audit: @audit.id) %></li>
+                  <li class="collection-item"><%= link_to a.name.titleize, area_path(a.id, audit: @audit.id) %></li>
                   <% end %>
                 </ul>
             </span>

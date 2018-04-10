@@ -80,10 +80,12 @@ class AreasController < ApplicationController
     end
 
     def complete
-        @audit = Audit.find(params[:audit])
+        @audit = @area.audit_id
         @area.status = "complete"
         @area.end_date = Date.current
         @area.save
+        # @area.update_attribute(:end_date, Date.current)
+        # @area.update_attribute(:status, "complete")
         redirect_to audit_path(@audit)
     end
 
