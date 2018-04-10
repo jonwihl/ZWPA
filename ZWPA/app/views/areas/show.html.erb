@@ -16,22 +16,22 @@
         <div class="card white">
             <div class="card-content">
                 <div id="c1">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @landfill} %>
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @landfill, id: "landfill"} %>
                 </div>
                 <div id="c2">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @recycling} %>
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @recycling,  id: "recycling"} %>
                 </div>
                 <div id="c3">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @compost} %>
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @compost, id: "compost"} %>
                 </div>
                 <div id="c4">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @reuse} %>
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @reuse, id: "reuse"} %>
                 </div>
                 <div id="c5">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @food_recovery} %>
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @food_recovery, id: "food_recovery"}%>
                 </div>
                 <div id="c6">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @all} %>
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @all, id: "all"} %>
                 </div>
             </div>
         </div>

@@ -1,0 +1,33 @@
+<table id= <%= id %> class="display">
+    <thead>
+        <tr>
+            <th>Area</th>
+            <th>Found in</th>
+            <th>True Category</th>
+            <th>Weight</th>
+            <th>Material Type</th> 
+            <th>Anomaly</th>
+            <th>Notes</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% category.each do |c| %>
+            <tr>
+                <td><%= c.area.name %></td>
+                <td><%= c.category %></td>
+                <td><%= c.true_category %></td>
+                <td><%= c.weight %></td>
+                <td>
+                    <% unless c.material_type.nil? %>
+                        <%= c.material_type.name %>
+                    <% end %>
+                </td>
+                <td><%= c.anomaly%></td>
+                <td><%= c.notes %></td>
+                <td><%= c.timestamp.strftime("%B %d, %Y") %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

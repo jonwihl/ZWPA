@@ -5,8 +5,8 @@
 
         <%= f.input :weight, wrapper_html: { class: 'col s6' } %>
         <%= f.input :true_category, collection: WasteInfo::CATEGORIES, as: :select, wrapper_html: { class: 'col s6' } %>
-        
-        <div id="material-type-select">
+
+        <div id= <%= id %>>
             <%= f.input :material_type_id, collection: MaterialType.active.to_a, wrapper_html: { class: 'col s5' } %>
         </div>
 
@@ -17,7 +17,7 @@
 
     <div class="row">
         <%= f.button :button, "Add Waste Information", type: 'submit', name: "area", value: params[:area], class: "btn waves-effect waves-light right"%>  
-        <%= link_to "Back", audits_path, class: "btn waves-effect waves-light #ffcdd2 red lighten-4 left" %> 
+        <%= link_to "Back", audit_path(audit), class: "btn waves-effect waves-light #ffcdd2 red lighten-4 left" %> 
     </div>
     <br>
 <% end %>

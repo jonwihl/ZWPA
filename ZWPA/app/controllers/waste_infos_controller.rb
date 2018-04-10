@@ -18,11 +18,13 @@ class WasteInfosController < ApplicationController
     def new
         @waste_info = WasteInfo.new
         @area_id = params[:area]
-        @landfill = WasteInfo.area_waste(@area_id).waste_category('landfill')
-        @compost = WasteInfo.area_waste(@area_id).waste_category('compost')
-        @recycling = WasteInfo.area_waste(@area_id).waste_category('recycling')
-        @reuse = WasteInfo.area_waste(@area_id).waste_category('reuse')
-        @food_recovery = WasteInfo.area_waste(@area_id).waste_category('food recovery')
+        @area = Area.find(@area_id)
+        @audit = @area.audit_id
+        @landfill = WasteInfo.area_waste(@area_id).waste_category('landfill').last(5)
+        @compost = WasteInfo.area_waste(@area_id).waste_category('compost').last(5)
+        @recycling = WasteInfo.area_waste(@area_id).waste_category('recycling').last(5)
+        @reuse = WasteInfo.area_waste(@area_id).waste_category('reuse').last(5)
+        @food_recovery = WasteInfo.area_waste(@area_id).waste_category('food recovery').last(5)
     end
 
     # GET /waste_infos/1/edit

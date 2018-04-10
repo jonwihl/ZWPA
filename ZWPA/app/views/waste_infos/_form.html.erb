@@ -10,19 +10,20 @@
     </div>
 </div><br>
 
+
 <div id="materialForm"></div>
+
 
 <div id="c1" >
     <div class="row valign-wrapper">
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                    <%= render partial: "partials/waste_info_form", locals: {category: "landfill" }%>
+                    <%= render partial: "partials/waste_info_form", locals: {category: "landfill", id: "landfilldiv", audit: @audit }%>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div class="row valign-wrapper">
         <div class="col s12 valign">
@@ -40,7 +41,7 @@
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                    <%= render partial: "partials/waste_info_form", locals: {category: "recycling"} %>
+                    <%= render partial: "partials/waste_info_form", locals: {category: "recycling", id: "recyclingdiv", audit: @audit} %>
                 </div>
             </div>
         </div>
@@ -63,7 +64,7 @@
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                    <%= render partial: "partials/waste_info_form", locals: {category: "compost"} %>
+                    <%= render partial: "partials/waste_info_form", locals: {category: "compost", id: "compostdiv", audit: @audit} %>
                 </div>
             </div>
         </div>
@@ -87,7 +88,7 @@
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                    <%= render partial: "partials/waste_info_form", locals: {category: "reuse"} %>
+                    <%= render partial: "partials/waste_info_form", locals: {category: "reuse", id: "resusediv", audit: @audit} %>
                 </div>
             </div>
         </div>
@@ -110,7 +111,7 @@
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                    <%= render partial: "partials/waste_info_form", locals: {category: "food recovery"} %>
+                    <%= render partial: "partials/waste_info_form", locals: {category: "food recovery", id: "food_recoverydiv", audit: @audit} %>
                 </div>
             </div>
         </div>

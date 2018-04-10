@@ -52,35 +52,19 @@ $(document).ready(function() {
         ]
     });
 
-    $("#landfill").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3, 4], visible: true, },
-        ]
-    });
-    $("#recycling").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3, 4], visible: true, },
-        ]
-    });
-    $("#compost").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3, 4], visible: true, },
-        ]
-    });
-    $("#reuse").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3, 4], visible: true, },
-        ]
-    });
-    $("#food_recovery").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3, 4], visible: true, },
-        ]
-    });
+    $("#landfill").dataTable();
+    $("#recycling").dataTable();
+    $("#compost").dataTable();
+    $("#reuse").dataTable();
+    $("#food_recovery").dataTable();
+
+    $("#all").dataTable();
 
     $("#dashboard").dataTable();
 
     $('.carousel').carousel();
+    $('.sidenav').sidenav();
+
 })
 
  // Flash fade
