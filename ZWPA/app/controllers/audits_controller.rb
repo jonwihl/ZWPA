@@ -7,6 +7,12 @@ class AuditsController < ApplicationController
     end
 
     def show
+        @areas = Area.for_audit(@audit.id)
+        unless @audit.questionnaire_id.nil?
+            @questionnaire_status = Questionnaire.find(@audit.questionnaire_id).status
+        else
+            @questionnaire_status = 0
+        end
     end
 
     def new
@@ -20,14 +26,17 @@ class AuditsController < ApplicationController
         @audit = Audit.new(audit_params)
         @audit.start_date = Date.today
         @audit.end_date = nil
-        respond_to do |format|
-            if @audit.save
-                format.html { redirect_to @audit, notice: "The audit has been added to the system" }
-                format.js
-            else
-                format.html { render action: 'new' }
-            end
+        if @audit.save
+            redirect_to @audit, notice: "The audit has been added to the system"
         end
+        # respond_to do |format|
+        #     if @audit.save
+        #         format.html { redirect_to @audit, notice: "The audit has been added to the system" }
+        #         format.js
+        #     else
+        #         format.html { render action: 'new' }
+        #     end
+        # end
     end
 
     def update

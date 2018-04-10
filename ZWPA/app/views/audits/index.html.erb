@@ -7,50 +7,50 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="center-align">       
-        <hr>
-        <div class="row">  
+<div class="row valign-wrapper">
+    <div class="col s12 valign">
+        <div class="card white">
+            <div class="card-content">
+                <div class="center-align">       
 
-            <div class ="center-align">
-                <h5> Manage Audits </h5>
-            </div> 
+                    <div class ="center-align">
+                        <h5> Manage Audits </h5>
+                    </div> 
 
-            <% unless @audits.nil? %>
-                <table id = "dashboard">
-                    <thead>
-                        <tr>
-                            <th>Audit Name</th>
-                            <th>Start Date</th>
-                            <th>Status</th>
-                            <th>Client</th>
-                        </tr>
-                    </thead>
+                    <% unless @audits.nil? %>
+                        <table id = "dashboard">
+                            <thead>
+                                <tr>
+                                    <th>Audit Name</th>
+                                    <th>Start Date</th>
+                                    <th>Status</th>
+                                    <th>Client</th>
+                                </tr>
+                            </thead>
 
-                    <tbody>
-                        <% @audits.each do |audit| %>
-                        <tr>
-                            <td><%= link_to audit.name, audit_path(audit) %></td>
-                        
-                            <td><%= audit.start_date.strftime("%B %d, %Y") %></td>
-                            <td><%= audit.status %></td>
-                            <td>
-                                <% if audit.client != nil %>
-                                    <%= audit.client.proper_name %>
+                            <tbody>
+                                <% @audits.each do |audit| %>
+                                <tr>
+                                    <td><%= link_to audit.name, audit_path(audit) %></td>
+                                
+                                    <td><%= audit.start_date.strftime("%B %d, %Y") %></td>
+                                    <td><%= audit.status %></td>
+                                    <td>
+                                        <% if audit.client != nil %>
+                                            <%= audit.client.proper_name %>
+                                        <% end %>
+                                    </td>
+                                </tr>
                                 <% end %>
-                            </td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-
-                </table>
-            <% end %>
-
+                            </tbody>
+                        </table>
+                    <% end %>
+                </div>
+                <br>
+                <%= link_to 'New Audit', new_audit_path, class: :"btn waves-effect waves-light right" %>
+                <br>
+            </div>
         </div>
     </div>
 </div>
     
-
-<div class="row">
-    <%= link_to 'New Audit', new_audit_path, class: :"btn waves-effect waves-light right" %>
-</div>

@@ -27,7 +27,7 @@ class WasteInfoTest < ActiveSupport::TestCase
 	    end
 
 	    should "show that reverse chronological scope works" do
-	    	assert_equal ["w1", "w2", "w3", "w4"], WasteInfo.all.reverse_chronological.map{ |w| w.notes }
+	    	assert_equal ["w1", "w2", "w3", "w4"], WasteInfo.all.reverse_chronological.map{ |w| w.notes }.sort
 	    end
 
 	    should "show that active scope works" do

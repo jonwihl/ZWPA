@@ -4,16 +4,40 @@ class AreasController < ApplicationController
     # GET /areas
     # GET /areas.json
     def index
-        @areas = Area.all
+        @audit = Audit.find(params[:audit])
+        @areas = Area.for_audit(@audit.id)
+        @landfill = Array.new
+        @compost = Array.new
+        @recycling = Array.new
+        @reuse = Array.new
+        @food_recovery = Array.new
+        @all = Array.new
+        for area in @areas
+            @landfill += WasteInfo.area_waste(area.id).waste_category('landfill')
+            @compost += WasteInfo.area_waste(area.id).waste_category('compost')
+            @recycling += WasteInfo.area_waste(area.id).waste_category('recycling')
+            @reuse += WasteInfo.area_waste(area.id).waste_category('reuse')
+            @food_recovery += WasteInfo.area_waste(area.id).waste_category('food recovery')
+            @all += WasteInfo.area_waste(area.id)
+        end
     end
 
     # GET /areas/1
     # GET /areas/1.json
     def show
+        @audit = Audit.find(params[:audit])
+        @landfill = WasteInfo.area_waste(@area.id).waste_category('landfill')
+        @compost = WasteInfo.area_waste(@area.id).waste_category('compost')
+        @recycling = WasteInfo.area_waste(@area.id).waste_category('recycling')
+        @reuse = WasteInfo.area_waste(@area.id).waste_category('reuse')
+        @food_recovery = WasteInfo.area_waste(@area.id).waste_category('food recovery')
+        @all = WasteInfo.area_waste(@area.id)
     end
 
     # GET /areas/new
     def new
+        @audit = Audit.find(params[:audit])
+        @existing_areas = Area.for_audit(@audit.id)
         @area = Area.new
     end
 
@@ -25,10 +49,11 @@ class AreasController < ApplicationController
     # POST /areas.json
     def create
         @area = Area.new(area_params)
+        @area.start_date = Date.today
         @area.active = true
         @area.status = "in progress"
         if @area.save
-            redirect_to areas_url, notice: "#{@area.name} has been added to the system"
+            redirect_to new_waste_info_path(area: @area), notice: "#{@area.name} has been added to the system"
         else
             flash[:error] = "This area could not be created."
             render "new"
@@ -55,10 +80,13 @@ class AreasController < ApplicationController
     end
 
     def complete
+        @audit = @area.audit_id
         @area.status = "complete"
         @area.end_date = Date.current
         @area.save
-        redirect_to areas_url
+        # @area.update_attribute(:end_date, Date.current)
+        # @area.update_attribute(:status, "complete")
+        redirect_to audit_path(@audit)
     end
 
     private

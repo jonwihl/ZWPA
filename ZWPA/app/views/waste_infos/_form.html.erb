@@ -1,19 +1,132 @@
-<%= simple_form_for(@waste_info) do |f| %>
-  <%= f.error_notification %>
+<div class="row">
+    <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s3"><a href="#c1" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'landfill' %>">Landfill</a></li>
+            <li class="tab col s2 "><a href="#c2" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'recycling' %>">Recycle</a></li>
+            <li class="tab col s2"><a href="#c3" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'compost' %>">Compost</a></li>
+            <li class="tab col s2"><a href="#c4" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'reuse' %>">Reuse</a></li>
+            <li class="tab col s3"><a href="#c5" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'food recovery' %>">Food Recovery</a></li>
+        </ul>
+    </div>
+</div><br>
 
-  <div class="form-inputs">
-    <%= f.input :category %>
-    <%= f.input :true_category %>
-    <%= f.input :weight %>
-    <%= f.input :notes %>
-    <%= f.input :anomaly %>
-    <%= f.input :timestamp %>
-    <%= f.input :active %>
-    <%= f.association :area %>
-    <%= f.association :material_type %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<div id="materialForm"></div>
+
+
+<div id="c1" >
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                    <%= render partial: "partials/waste_info_form", locals: {category: "landfill", id: "landfilldiv", audit: @audit }%>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                        <%= render partial: "partials/waste_info_table", locals: {category: @landfill, id: "landfill"} %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="c2" >
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                    <%= render partial: "partials/waste_info_form", locals: {category: "recycling", id: "recyclingdiv", audit: @audit} %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                    <%= render partial: "partials/waste_info_table", locals: {category: @recycling, id: "recycling"} %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="c3" >
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                    <%= render partial: "partials/waste_info_form", locals: {category: "compost", id: "compostdiv", audit: @audit} %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                    <%= render partial: "partials/waste_info_table", locals: {category: @compost, id: "compost"} %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="c4" >
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                    <%= render partial: "partials/waste_info_form", locals: {category: "reuse", id: "resusediv", audit: @audit} %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                    <%= render partial: "partials/waste_info_table", locals: {category: @reuse, id: "resuse"} %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="c5" >
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                    <%= render partial: "partials/waste_info_form", locals: {category: "food recovery", id: "food_recoverydiv", audit: @audit} %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row valign-wrapper">
+        <div class="col s12 valign">
+            <div class="card white">
+                <div class="card-content">
+                    <%= render partial: "partials/waste_info_table", locals: {category: @food_recovery, id: "food_recovery"} %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

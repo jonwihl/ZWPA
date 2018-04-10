@@ -8,6 +8,9 @@
 
                         <%= render :partial => "partials/error", locals: {f: f} %><br>
 
+                        <%= f.input :audit, as: :hidden, input_html: { value: @audit} %>
+
+
                         <%= f.input :square_footage %>
                         <%= f.input :max_occupancy %>
                         <%= f.input :num_floors %>
@@ -91,9 +94,10 @@
                         <br>
 
                         <div class="row">
-                          <%= f.submit "Submit", class: :"btn waves-effect waves-light right" %>
+                          <%= f.button :button, "Save", type: 'submit', name: "audit", value: @audit.id, class: :"btn waves-effect waves-light right" %>
+
                           <% unless @audit.nil? %>
-                            <%= link_to 'Cancel', audit_path(@audit.id), class: :"btn waves-effect waves-light #ffcdd2 red lighten-3 right" %>
+                            <%= link_to 'Back', audit_path(@audit.id), class: :"btn waves-effect waves-light #ffcdd2 red lighten-3 left" %>
                           <% end %>
                         </div>
                   <% end %>

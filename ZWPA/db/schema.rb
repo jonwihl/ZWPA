@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20180405010651) do
     t.string "audit_type"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.text "notes"
     t.boolean "active"
     t.integer "user_id"
     t.integer "client_id"
