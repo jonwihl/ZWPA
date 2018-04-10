@@ -57,7 +57,11 @@
                     </tr>
                     <% for a in @areas %>
                       <tr>
-                        <td><%= link_to a.name, area_path(a.id, audit: @audit.id) %></td>
+                        <% if a.status = "in progress" %>
+                        <td><%= link_to a.name, new_waste_info_path(area: a.id) %></td>
+                        <% else %>
+                        <td><%= a.name %></td>
+                        <% end%>
                         <td><%= a.status %></td>
                       </tr>
                     <% end%>
@@ -115,3 +119,4 @@
 
 </div>
 
+<%= link_to 'Back', audits_path %>
