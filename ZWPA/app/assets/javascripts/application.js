@@ -63,8 +63,7 @@ $(document).ready(function() {
     $("#dashboard").dataTable();
 
     $('.carousel').carousel();
-    $('.sidenav').sidenav();
-
+    $('.sidenav').sideNav();
 })
 
  // Flash fade
