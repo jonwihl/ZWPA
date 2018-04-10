@@ -28,7 +28,7 @@
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                        <%= render partial: "partials/waste_info_table", locals: {category: @landfill} %>
+                        <%= render partial: "partials/waste_info_table", locals: {category: @landfill, id: "landfill"} %>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @recycling} %>
+                    <%= render partial: "partials/waste_info_table", locals: {category: @recycling, id: "recycling"} %>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @compost} %>
+                    <%= render partial: "partials/waste_info_table", locals: {category: @compost, id: "compost"} %>
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @reuse} %>
+                    <%= render partial: "partials/waste_info_table", locals: {category: @reuse, id: "resuse"} %>
                 </div>
             </div>
         </div>
@@ -121,7 +121,7 @@
         <div class="col s12 valign">
             <div class="card white">
                 <div class="card-content">
-                    <%= render partial: "partials/waste_info_table", locals: {category: @food_recovery} %>
+                    <%= render partial: "partials/waste_info_table", locals: {category: @food_recovery, id: "food_recovery"} %>
                 </div>
             </div>
         </div>

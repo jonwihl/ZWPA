@@ -17,4 +17,5 @@ ZWPA::Application.routes.draw do
 
   	# Application route for setting a particular area in an audit's end_date/status
   	get 'areas/:id/complete', to: 'areas#complete', as: :complete_area
+    root :to => 'audits#index'
 end

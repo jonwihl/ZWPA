@@ -57,7 +57,7 @@ $(document).ready(function() {
         { targets: [0, 1, 2, 3, 4], visible: true, },
         ]
     });
-    $("#recycle").dataTable( {
+    $("#recycling").dataTable( {
     columnDefs: [
         { targets: [0, 1, 2, 3, 4], visible: true, },
         ]
