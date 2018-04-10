@@ -1,6 +1,6 @@
-<div class="card white">
+<div id="new-material-type-form" class="card white">
     <div class="card-content">
-        <div id="new-material-type-form" class="row">
+        <div class="row">
             <h5>New Material Type</h5>
             <%= simple_form_for @material_type, remote: true do |f| %>
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>

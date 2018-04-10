@@ -20,6 +20,8 @@ class WasteInfosController < ApplicationController
         @area_id = params[:area]
         @area = Area.find(@area_id)
         @audit = @area.audit_id
+        @prev_category = WasteInfo.last.category
+
         @landfill = WasteInfo.area_waste(@area_id).waste_category('landfill').last(5)
         @compost = WasteInfo.area_waste(@area_id).waste_category('compost').last(5)
         @recycling = WasteInfo.area_waste(@area_id).waste_category('recycling').last(5)

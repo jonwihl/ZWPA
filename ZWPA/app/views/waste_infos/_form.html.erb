@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col s12">
         <ul class="tabs">
-            <li class="tab col s3"><a href="#c1" class="teal-text text-darken-2">Landfill</a></li>
-            <li class="tab col s2"><a href="#c2" class="teal-text text-darken-2">Recycle</a></li>
-            <li class="tab col s2"><a href="#c3" class="teal-text text-darken-2">Compost</a></li>
-            <li class="tab col s2"><a href="#c4" class="teal-text text-darken-2">Reuse</a></li>
-            <li class="tab col s3"><a href="#c5" class="teal-text text-darken-2">Food Recovery</a></li>
+            <li class="tab col s3"><a href="#c1" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'landfill' %>">Landfill</a></li>
+            <li class="tab col s2 "><a href="#c2" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'recycling' %>">Recycle</a></li>
+            <li class="tab col s2"><a href="#c3" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'compost' %>">Compost</a></li>
+            <li class="tab col s2"><a href="#c4" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'reuse' %>">Reuse</a></li>
+            <li class="tab col s3"><a href="#c5" class="teal-text text-darken-2 <%= 'active' if @prev_category == 'food recovery' %>">Food Recovery</a></li>
         </ul>
     </div>
 </div><br>
