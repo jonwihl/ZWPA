@@ -1,31 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s2"><a href="#c1" class="teal-text text-darken-2">Landfill</a></li>
+            <li class="tab col s2"><a href="#c2" class="teal-text text-darken-2">Recycle</a></li>
+            <li class="tab col s2"><a href="#c3" class="teal-text text-darken-2">Compost</a></li>
+            <li class="tab col s2"><a href="#c4" class="teal-text text-darken-2">Reuse</a></li>
+            <li class="tab col s3"><a href="#c5" class="teal-text text-darken-2">Food Recovery</a></li>
+            <li class="tab col s1"><a href="#c6" class="teal-text text-darken-2">All</a></li>
+        </ul>
+    </div>
+</div>
 
-<h1>Areas</h1>
+<div class="row valign-wrapper">
+    <div class="col s12 valign">
+        <div class="card white">
+            <div class="card-content">
+                <div id="c1">
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @landfill, id: "landfill"} %>
+                </div>
+                <div id="c2">
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @recycling,  id: "recycling"} %>
+                </div>
+                <div id="c3">
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @compost, id: "compost"} %>
+                </div>
+                <div id="c4">
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @reuse, id: "reuse"} %>
+                </div>
+                <div id="c5">
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @food_recovery, id: "food_recovery"}%>
+                </div>
+                <div id="c6">
+                    <%= render partial: "partials/raw_waste_info_table", locals: {category: @all, id: "all"} %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Active</th>
-      <th>Audit</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @areas.each do |area| %>
-      <tr>
-        <td><%= area.name %></td>
-        <td><%= area.active %></td>
-        <td><%= area.audit %></td>
-        <td><%= link_to 'Show', area %></td>
-        <td><%= link_to 'Edit', edit_area_path(area) %></td>
-        <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Area', new_area_path %>
+<%= link_to 'Back', audit_path(@audit.id), class: :"btn waves-effect waves-light red lighten-4 left"%>

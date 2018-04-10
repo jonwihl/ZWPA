@@ -52,46 +52,30 @@ $(document).ready(function() {
         ]
     });
 
-    $("#landfill").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
-        ]
-    });
-    $("#recycle").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
-        ]
-    });
-    $("#compost").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
-        ]
-    });
-    $("#reuse").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
-        ]
-    });
-    $("#food_recovery").dataTable( {
-    columnDefs: [
-        { targets: [0, 1, 2, 3], visible: true, },
-        ]
-    });
+    $("#landfill").dataTable();
+    $("#recycling").dataTable();
+    $("#compost").dataTable();
+    $("#reuse").dataTable();
+    $("#food_recovery").dataTable();
+
+    $("#all").dataTable();
 
     $("#dashboard").dataTable();
 
     $('.carousel').carousel();
+    $('.sidenav').sideNav();
 })
 
  // Flash fade
 $(function() {
    $('.alert-box').fadeIn('normal', function() {
-      $(this).delay(500).fadeOut();
+      $(this).fadeOut(2000);
    });
 });
 
 $(function() {
    $('.error-alert-box').fadeIn('normal');
+   $('.error-alert-box').fadeOut(2000);
 });
 
 
@@ -101,7 +85,15 @@ $(document).ready(function() {
     } );
 } );
 
-
+// Mobile sidebar 
+//$(function() {
+//    $('.button-collapse').sideNav({
+//      menuWidth: 300, // Default is 300
+//      edge: 'left', // Choose the horizontal origin
+//      closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+//      draggable: true // Choose whether you can drag to open on touch screens
+//    });
+//} );
 
 //  var elem = document.querySelector('select');
 //   var instance = M.FormSelect.init(elem, options);

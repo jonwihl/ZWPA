@@ -2,7 +2,7 @@ class WasteInfo < ApplicationRecord
   	belongs_to :area
   	belongs_to :material_type
 
-  	CATEGORIES = [['Landfill', 'landfill'], ['Recycling', 'recycling'], ['Compost', 'compost'], ['Reuse', 'Reuse'], ['Food Recovery', 'food recovery']]
+  	CATEGORIES = [['Landfill', 'landfill'], ['Recycling', 'recycling'], ['Compost', 'compost'], ['Reuse', 'reuse'], ['Food Recovery', 'food recovery']]
 
   	validates_presence_of :category, :weight, :timestamp
   	validates_inclusion_of :category, :in => ["landfill", "recycling", "compost", "reuse", "food recovery"], message: "is not a valid category"

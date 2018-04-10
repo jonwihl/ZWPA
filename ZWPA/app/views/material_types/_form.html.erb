@@ -1,13 +1,14 @@
-<%= simple_form_for(@material_type) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :category %>
-    <%= f.input :active %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<div class="card white">
+    <div class="card-content">
+        <div id="new-material-type-form" class="row">
+            <h5>New Material Type</h5>
+            <%= simple_form_for @material_type, remote: true do |f| %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
+                <%= f.input :name, wrapper_html: { class: 'col s5' } %>
+                <%= f.input :category, collection: WasteInfo::CATEGORIES, as: :select, wrapper_html: { class: 'col s5' } %>
+                
+                <%= f.submit "Submit", class: "input-field-two btn waves-effect waves-light col s2 right" %>
+            <% end %>
+        </div>
+    </div>
+</div>
