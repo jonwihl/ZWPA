@@ -16,13 +16,21 @@
             <li><a href="#">Log out</a></li>
         </ul>
 
+        <ul id="slide-out" class="sidenav">
+            <li class="no-padding">
+                <div class="collapsible-body">
+                    <ul>
+                        <li><%= link_to 'Manage Audits', audits_url %></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+        <a href="#" data-target="slide-out" class="sidenav-trigger left hide-on-med-and-down">Dropdown</a>
+
     </div>
 
 </nav>
-
-
-
-
 
 
 
